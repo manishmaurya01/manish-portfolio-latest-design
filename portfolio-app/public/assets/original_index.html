@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic SEO -->
+    <meta name="description"
+        content="Manish Maurya - Web Developer, UI/UX Designer & Programmer. I build modern websites, digital products and creative web experiences.">
+    <meta name="keywords"
+        content="Manish Maurya, Web Developer, UI UX Designer, Programmer, Portfolio, manishmaurya.in, Frontend Developer, Full Stack Developer">
+    <meta name="author" content="Manish Maurya">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://manishmaurya.in/">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:title" content="Manish Maurya | Web Developer & Designer">
+    <meta property="og:description"
+        content="I build digital products, brands and experiences. Passionate about clean UI, smart automation and creative web.">
+    <meta property="og:image" content="https://manishmaurya.in/meta.png">
+    <meta property="og:url" content="https://manishmaurya.in/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manish Maurya | Web Developer & Designer">
+    <meta name="twitter:description" content="Building modern websites, digital products and creative experiences.">
+    <meta name="twitter:image" content="https://manishmaurya.in/meta.png">
+    <meta name="twitter:site" content="@mauryamanish01">
+
+    <!-- Netlify + PWA friendly -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
+
+    <title>Manish Maurya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="" loading="lazy">
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links">
+            <div class="close-btn" onclick="toggleMenu()">✕</div>
+            <ul>
+
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Wat_I_Do">Wat_I_Do</a></li>
+                <li><a href="#Tech_Stack">Tech Stack</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Achievement">Achievement</a></li>
+                <li><a href="#Academic_Journey">Academic Journey</a></li>
+                <li><a href="#Contact_Me">Contact Me</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="overlay" onclick="toggleMenu()"></div>
+
+    <div class="space"></div>
+
+    <!-- <div class="shadow"></div> -->
+    <div class="hero-wrapper" id="Home">
+        <div class="left">
+            <div class="profile-box">
+                <img src="hero_avatar.png" alt="Avatar" class="avatar" loading="lazy">
+
+                <p class="hi-text">Hi, I am <span class="bd">Manish</span> </p>
+
+                <h2 class="main-text">
+                    Build Digital <br>
+                    <span class="bd">Products, Brand</span>
+                    And Experiences
+                </h2>
+
+                <div class="hero-buttons">
+                    <button class="btn connect-btn"><a href="#Contact_Me">Connect With Me</a></button>
+                    <button class="btn resume-btn"><a href="MANISH MAURYA.pdf" download>Resume</a></button>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://github.com/manishmaurya01" title="GitHub" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg">
+                    </a>
+                    <a href="https://www.linkedin.com/in/mauryamanish01/" title="LinkedIn" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
+                    </a>
+                    <a href="https://x.com/mauryamanish01" title="Twitter" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg">
+                    </a>
+                    <a href="mailto:mauryamanish13678@gmail.com" title="Email" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+            <img src="https://i.pinimg.com/originals/9b/2b/2a/9b2b2a3a89e55d72d0bd6657cf7c6fd2.gif" alt="mk"
+                loading="lazy">
+        </div>
+    </div>
+
+
+
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h2 class="count" data-target="3">0</h2>
+                <p>Freelancing Projects Completed</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="count" data-target="2">0</h2>
+                <p>Years of Learning</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="count" data-target="12">0</h2>
+                <p>Tech Stacks</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <section class="quote-section" id="quote">
+        <div class="quote-box">
+            <p class="quote-line">
+                “I don’t just write code —
+            </p>
+            <h2 class="quote-main">
+                I create <span class="bd">experiences.</span>
+            </h2>
+            <p class="quote-sub">
+                Digital things that people love to use.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="about-stack" id="About">
+
+
+        <div class="stack-wrapper">
+            <div class="photo-stack">
+                <img src="about.jpg" class="layer l1" loading="lazy">
+                <img src="about.jpg" class="layer l2" loading="lazy">
+                <img src="about.jpg" class="layer l3" loading="lazy">
+            </div>
+
+            <div class="stack-text">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I’m Manish — I build digital products, brands and experiences.
+                    Passionate about clean UI, smart automation and creative web.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="what-i-do-section" id="Wat_I_Do">
+        <h2 class="what-title">"What I Do"</h2>
+
+        <div class="simple-boxes">
+            <div class="simple-box">
+                <h3>Web Development</h3>
+                <p>Modern and responsive websites.</p>
+            </div>
+
+            <div class="simple-box">
+                <h3>UI / UX Design</h3>
+                <p>Clean and user-friendly design.</p>
+            </div>
+
+            <div class="simple-box">
+                <h3>Automation</h3>
+                <p>Smart workflows with n8n.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="tech-used" id="Tech_Stack">
+        <h2 class="tech-heading">"Technologies & Tools I Use"</h2>
+
+        <div class="tech-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>MySQL</span>
+            <span>Firebase</span>
+            <span>React.js</span>
+            <span>Tailwind CSS</span>
+            <span>VS Code</span>
+            <span>n8n</span>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="projects-section" id="Projects">
+        <h2 class="projects-title">"My Projects"</h2>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="payroll.png" alt="Payroll System" loading="lazy">
+                <div class="project-body">
+                    <h3>HR Management System</h3>
+                    <p class="desc">
+                        A web-based HR Management System designed to streamline employee attendance tracking, leave
+                        management, and payroll processing within an organization.
+                    </p>
+                    <div class="tech-pills">
+                        <span>React.js</span>
+                        <span>Firebase</span>
+                    </div>
+
+                    <div class="project-buttons">
+                        <button class="btn_p connect-btn"><a href="https://apnapp.netlify.app/">View Project</a><span
+                                class="arrow">→</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="food.png" alt="Food Ordering" loading="lazy">
+                <div class="project-body">
+                    <h3>Food Ordering System</h3>
+                    <p class="desc">
+                        Developed a responsive food ordering web application using React.js and Firebase, featuring user
+                        authentication, real-time database integration, dynamic product listing, cart management, and
+                        secure order placement.
+                    </p>
+
+                    <div class="tech-pills">
+                        <span>React.js</span>
+                        <span>Firebase</span>
+                    </div>
+
+                    <div class="project-buttons">
+                        <button class="btn_p connect-btn"><a href="https://sastazomato.netlify.app/">View Project</a>
+                            <span class="arrow">→</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="kv.png" alt="Quiz App" loading="lazy">
+                <div class="project-body">
+                    <h3>kavyacomputer.com</h3>
+                    <p class="desc">
+                        Developed a complete web-based examination portal with an integrated admin panel for
+                        Kavyacomputers.com, enabling dynamic exam creation, scheduling, student registration, and
+                        automated result management.
+                    </p>
+                    <div class="tech-pills">
+                        <span>Php</span>
+                        <span>MySql</span>
+                        
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn_p connect-btn"><a href="https://kavyacomputer.com/">View
+                                Project</a><span class="arrow">→</span></button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section class="achievement-section" id="Achievement">
+        <h2 class="achievement-title">My Achievement</h2>
+
+        <div class="achievement-card">
+            <img src="hackathon.png" alt="Hackathon Certificate" loading="lazy">
+
+            <div class="achievement-text">
+                <h3>Hackathon Participation</h3>
+                <p>
+                    I participated in Parul University Vadodara Hackathon 6.0, where I worked together with a team and
+                    gained real-world experience in collaboration, problem-solving, and fast development
+                </p>
+                <a href="Certificate of Participation-Manish Maurya.pdf" download class="tag">
+                    Participant Certificate
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="timeline-section" id="Academic_Journey">
+        <h2 class="timeline-title">
+            “Academic Journey”
+        </h2>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>10th – GSEB</h3>
+                    <p>57.85% – Shree S K Highschool, Lunawada</p>
+                </div>
+                <div class="dot"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>12th – GSEB</h3>
+                    <p>74.14% – Shree S K Highschool, Lunawada</p>
+                </div>
+                <div class="dot"></div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>BCA</h3>
+                    <p>7.56 CGPA – HNGU, Patan</p>
+                </div>
+                <div class="dot"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>MCA (Ongoing)</h3>
+                    <p>Parul University, Vadodara</p>
+                </div>
+                <div class="dot"></div>
+            </div>
+
+            <div class="line"></div>
+        </div>
+    </section>
+
+
+    <section class="contact-section" id="Contact_Me">
+        <h2 class="contact-title">Contact Me</h2>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-left">
+
+                <div class="image">
+                    <img src="https://i.pinimg.com/originals/e0/0c/47/e00c47431702e4b6e423d5742a0bec1a.gif"
+                        alt="contact me">
+                </div>
+
+                <h3>Let’s Work Together</h3>
+                <p>
+                    Have an idea or project in mind?
+                    Let’s build something amazing together.
+                </p>
+            </div>
+
+            <form class="contact-form" action="https://formsubmit.co/ce832bf09fc40587656ee91347b63125" method="post">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message →</button>
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <h2>Manish Kumar</h2>
+                <p>Web Developer • Designer • Programmer</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="#Home">Home</a>
+                    <a href="#About">About</a>
+                    <a href="#Wat_I_Do">Wat_I_Do</a>
+                    <a href="#Tech_Stack">Tech Stack</a>
+                    <a href="#Projects">Projects</a>
+                    <a href="#Achievement">Achievement</a>
+                    <a href="#Academic_Journey">Academic Journey</a>
+                    <a href="#Contact_Me">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://github.com/manishmaurya01" title="GitHub" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg">
+                    </a>
+                    <a href="https://www.linkedin.com/in/mauryamanish01/" title="LinkedIn" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
+                    </a>
+                    <a href="https://x.com/mauryamanish01" title="Twitter" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg">
+                    </a>
+                    <a href="mailto:mauryamanish13678@gmail.com" title="Email" class="social-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Manish Kumar. All rights reserved.
+        </div>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+            document.querySelector(".menu-icon").classList.toggle("active");
+        }
+
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+            document.querySelector(".menu-icon").classList.toggle("active");
+            document.querySelector(".overlay").classList.toggle("active");
+        }
+
+
+
+
+        document.querySelectorAll(".rubik-face").forEach(face => {
+            for (let i = 0; i < 9; i++) {
+                face.appendChild(document.createElement("div"));
+            }
+        });
+
+        const counters = document.querySelectorAll(".count");
+        let started = false;
+
+        function startCount() {
+            if (started) return;
+            started = true;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute("data-target");
+                let current = 0;
+                const speed = target / 60; // smoothness
+
+                const update = () => {
+                    current += speed;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current) + "+";
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                update();
+            });
+        }
+        const quoteBox = document.querySelector(".quote-box");
+
+
+        // Trigger on scroll
+        window.addEventListener("scroll", () => {
+            const section = document.getElementById("stats");
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                startCount();
+            }
+            const rectt = quoteBox.getBoundingClientRect();
+            const vh = window.innerHeight;
+
+            if (rect.top < vh * 0.8) {
+                quoteBox.classList.add("show");
+            } else {
+                quoteBox.classList.remove("show");
+            }
+        });
+
+
+
+        const boxes = document.querySelectorAll(".simple-box");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.4 });
+
+        boxes.forEach(box => observer.observe(box));
+
+
+
+
+        const techCards = document.querySelectorAll(".tech-card");
+
+        const techObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        techCards.forEach(card => techObs.observe(card));
+
+
+
+
+
+        const items = document.querySelectorAll(".timeline-item");
+        const line = document.querySelector(".line");
+
+        function handleScroll() {
+            const timeline = document.querySelector(".timeline");
+            const rect = timeline.getBoundingClientRect();
+            const vh = window.innerHeight;
+
+            // Line grow
+            let progress = 1 - rect.top / vh;
+            progress = Math.max(0, Math.min(1, progress));
+            line.style.height = progress * timeline.scrollHeight + "px";
+
+            // Items show
+            items.forEach(item => {
+                const r = item.getBoundingClientRect();
+                if (r.top < vh - 100) {   // thoda pehle trigger
+                    item.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // page load pe bhi call
+
+
+    </script>
+
+
+</body>
+
+</html>
