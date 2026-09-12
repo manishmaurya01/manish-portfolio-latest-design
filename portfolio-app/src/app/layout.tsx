@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/siteConfig";
+import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";
+import ScrollProgressBar from "@/components/common/ScrollProgressBar";
+import CustomCursor from "@/components/common/CustomCursor";
 
 const sansFont = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -79,10 +82,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sansFont.variable} ${displayFont.variable} ${monoFont.variable} scroll-smooth dark`}
+      className={`${sansFont.variable} ${displayFont.variable} ${monoFont.variable} dark`}
     >
-      <body className="min-h-screen bg-[#070709] text-[#f4f4f7] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#070709] flex flex-col">
-        {children}
+      <body className="min-h-screen bg-[#070709] text-[#f4f4f7] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#070709] flex flex-col relative">
+        <ScrollProgressBar />
+        <CustomCursor />
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

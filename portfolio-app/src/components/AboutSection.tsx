@@ -1,9 +1,75 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
-import { CheckCircle2, Code2, Sparkles, MapPin, GraduationCap } from "lucide-react";
+import TiltCard3D from "./3d/TiltCard3D";
+import { CheckCircle2, Sparkles, MapPin } from "lucide-react";
+
+function AnimatedStat({ value, label }: { value: string; label: string }) {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const elementRef = useRef<HTMLDivElement | null>(null);
+
+  // Parse numeric prefix
+  const numericMatch = value.match(/\d+/);
+  const targetNumber = numericMatch ? parseInt(numericMatch[0], 10) : 0;
+  const suffix = value.replace(/\d+/, "");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+
+          if (targetNumber === 0) return;
+
+          let start = 0;
+          const duration = 1600;
+          const startTime = performance.now();
+
+          const step = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeOut * targetNumber);
+            setCount(current);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              setCount(targetNumber);
+            }
+          };
+
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [targetNumber, hasAnimated]);
+
+  return (
+    <div
+      ref={elementRef}
+      className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-sm text-center hover:border-[#00f0ff]/30 transition-all duration-300 group"
+    >
+      <p className="text-xl sm:text-2xl font-black text-white font-mono tracking-tight group-hover:text-[#00f0ff] transition-colors">
+        {targetNumber > 0 ? `${count}${suffix}` : value}
+      </p>
+      <p className="text-[11px] text-neutral-400 mt-1 leading-tight">
+        {label}
+      </p>
+    </div>
+  );
+}
 
 export default function AboutSection() {
   return (
@@ -32,10 +98,13 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Photo Stack Visual */}
+          {/* Left Column: 3D Tilt Photo Stack Visual */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-72 sm:w-80 h-96">
-              
+            <TiltCard3D
+              maxTilt={15}
+              dataCursor="ABOUT"
+              className="w-72 sm:w-80 h-96 cursor-pointer"
+            >
               {/* Back Layer 3 */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-cyan-950/40 to-violet-950/40 border border-white/10 rotate-6 translate-x-3 translate-y-3 opacity-60" />
               
@@ -54,7 +123,7 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070709]/90 via-transparent to-transparent" />
                 
                 {/* Overlay Badge */}
-                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
                   <div>
                     <p className="text-xs font-semibold text-white">Manish Kumar</p>
                     <p className="text-[10px] text-cyan-400 font-mono">Creative Technologist</p>
@@ -65,8 +134,7 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
-
-            </div>
+            </TiltCard3D>
           </div>
 
           {/* Right Column: Bio & Core Values */}
@@ -119,20 +187,14 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Authentic Numerical Stats Grid */}
+            {/* Numerical Stats with Viewport-Triggered Counter */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
               {siteConfig.stats.map((stat, idx) => (
-                <div
+                <AnimatedStat
                   key={idx}
-                  className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-sm text-center hover:border-[#00f0ff]/30 transition-colors"
-                >
-                  <p className="text-xl sm:text-2xl font-black text-white font-mono tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="text-[11px] text-neutral-400 mt-1 leading-tight">
-                    {stat.label}
-                  </p>
-                </div>
+                  value={stat.value}
+                  label={stat.label}
+                />
               ))}
             </div>
 

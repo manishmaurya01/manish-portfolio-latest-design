@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Monitor, Palette, Cpu, ArrowUpRight, CheckCircle } from "lucide-react";
+import { Monitor, Palette, Cpu, CheckCircle } from "lucide-react";
+import TiltCard3D from "./3d/TiltCard3D";
 
 const capabilities = [
   {
@@ -73,57 +74,61 @@ export default function CapabilitiesSection() {
           </p>
         </div>
 
-        {/* 3 Interactive Cards Grid */}
+        {/* 3 Interactive 3D Tilt Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {capabilities.map((item) => {
             const Icon = item.icon;
             return (
-              <div
+              <TiltCard3D
                 key={item.id}
-                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-[#10131d] to-[#0a0c13] p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#00f0ff]/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#00f0ff]/10"
+                maxTilt={10}
+                dataCursor="SERVICE"
+                className="h-full"
               >
-                <div>
-                  {/* Top Bar: Icon + Category Tag */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#00f0ff] group-hover:bg-[#00f0ff]/10 group-hover:border-[#00f0ff]/30 transition-colors">
-                      <Icon className="w-6 h-6" />
+                <div className="h-full rounded-2xl border border-white/10 bg-gradient-to-b from-[#10131d] to-[#0a0c13] p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#00f0ff]/40 shadow-xl group">
+                  <div>
+                    {/* Top Bar: Icon + Category Tag */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#00f0ff] group-hover:bg-[#00f0ff]/10 group-hover:border-[#00f0ff]/30 transition-colors">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-neutral-400">
+                        {item.tag}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] text-neutral-400">
-                      {item.tag}
-                    </span>
+
+                    {/* Title & Description */}
+                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[#00f0ff] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+
+                    {/* Feature Checkpoints */}
+                    <ul className="space-y-2 mb-6">
+                      {item.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs text-neutral-300">
+                          <CheckCircle className="w-3.5 h-3.5 text-[#00f0ff] mt-0.5 shrink-0" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[#00f0ff] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-
-                  {/* Feature Checkpoints */}
-                  <ul className="space-y-2 mb-6">
-                    {item.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-neutral-300">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#00f0ff] mt-0.5 shrink-0" />
-                        <span>{point}</span>
-                      </li>
+                  {/* Tech Pills Footer */}
+                  <div className="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
+                    {item.tech.map((t, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/[0.04] text-neutral-300 border border-white/5"
+                      >
+                        {t}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-
-                {/* Tech Pills Footer */}
-                <div className="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
-                  {item.tech.map((t, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/[0.04] text-neutral-300 border border-white/5"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </TiltCard3D>
             );
           })}
         </div>

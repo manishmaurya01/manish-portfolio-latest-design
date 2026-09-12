@@ -3,8 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
-import HeroCanvas from "./HeroCanvas";
-import { ArrowDown, ArrowUpRight, Mail, Download, Sparkles } from "lucide-react";
+import Hero3DScene from "./3d/Hero3DScene";
+import TiltCard3D from "./3d/TiltCard3D";
+import { ArrowDown, ArrowUpRight, Mail, Download, Sparkles, Box } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterXIcon } from "./SocialIcons";
 
 export default function HeroSection() {
@@ -13,34 +14,41 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#070709]"
     >
-      {/* Interactive Background Canvas */}
-      <HeroCanvas />
+      {/* Interactive Three.js 3D WebGL Scene */}
+      <Hero3DScene />
 
       {/* Ambient background glow orbs */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-[#8b5cf6]/15 via-[#00f0ff]/10 to-transparent rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#8b5cf6]/20 via-[#00f0ff]/10 to-transparent rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#00f0ff]/5 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#00f0ff]/8 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Typography & CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-start text-left pointer-events-auto">
             
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 backdrop-blur-md mb-6 animate-fade-in">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono font-medium text-emerald-300 tracking-wide">
-                Available for Projects &amp; Roles
-              </span>
+            {/* Status Pill & 3D indicator */}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-xs font-mono font-medium text-emerald-300 tracking-wide">
+                  Available for Projects &amp; Roles
+                </span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#00f0ff]/20 bg-[#00f0ff]/5 backdrop-blur-md text-[11px] font-mono text-cyan-300">
+                <Box className="w-3 h-3 text-[#00f0ff] animate-pulse" />
+                <span>Three.js 3D WebGL Active</span>
+              </div>
             </div>
 
             {/* Intro Greeting */}
@@ -59,13 +67,14 @@ export default function HeroSection() {
             {/* Subtitle / Bio summary */}
             <p className="max-w-xl text-base sm:text-lg text-neutral-300 font-normal leading-relaxed mb-8">
               Full-Stack Developer, UI/UX Designer &amp; Programmer based in Gujarat, India. 
-              Specializing in reactive web applications, clean user architecture, and intelligent automation.
+              Engineering reactive web applications, high-performance systems, and automated pipelines.
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
               <a
                 href="#projects"
+                data-cursor="VIEW WORK"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#00f0ff]/25 transition-all duration-200 active:scale-95"
               >
                 <span>View Selected Work</span>
@@ -75,6 +84,7 @@ export default function HeroSection() {
               <a
                 href={siteConfig.resumeUrl}
                 download
+                data-cursor="RESUME"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all duration-200"
               >
                 <Download className="w-4 h-4 text-[#00f0ff]" />
@@ -83,6 +93,7 @@ export default function HeroSection() {
 
               <a
                 href="#contact"
+                data-cursor="TALK"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/20 text-neutral-300 hover:text-white font-medium text-sm flex items-center justify-center gap-2 transition-colors"
               >
                 <span>Let&apos;s Talk</span>
@@ -100,6 +111,7 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
+                  data-cursor="GITHUB"
                   className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-[#00f0ff] transition-all"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -109,6 +121,7 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
+                  data-cursor="LINKEDIN"
                   className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-[#00f0ff] transition-all"
                 >
                   <LinkedinIcon className="w-4 h-4" />
@@ -118,6 +131,7 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter / X Profile"
+                  data-cursor="TWITTER"
                   className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-[#00f0ff] transition-all"
                 >
                   <TwitterXIcon className="w-4 h-4" />
@@ -125,6 +139,7 @@ export default function HeroSection() {
                 <a
                   href={siteConfig.socials.email}
                   aria-label="Email Manish"
+                  data-cursor="EMAIL"
                   className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-[#00f0ff] transition-all"
                 >
                   <Mail className="w-4 h-4" />
@@ -134,10 +149,13 @@ export default function HeroSection() {
 
           </div>
 
-          {/* Right Column: Hero Visual & Avatar Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm sm:max-w-md">
-              
+          {/* Right Column: 3D Tilt Avatar Glass Card */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end pointer-events-auto">
+            <TiltCard3D
+              maxTilt={14}
+              dataCursor="3D TILT"
+              className="w-full max-w-sm sm:max-w-md"
+            >
               {/* Outer Glow Halo */}
               <div className="absolute -inset-1.5 bg-gradient-to-tr from-[#00f0ff]/30 via-[#8b5cf6]/30 to-[#00f0ff]/20 rounded-3xl blur-xl opacity-70 animate-pulse-glow" />
 
@@ -182,15 +200,16 @@ export default function HeroSection() {
                 </div>
 
               </div>
-            </div>
+            </TiltCard3D>
           </div>
 
         </div>
 
         {/* Subtle Scroll Down Prompt */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16 flex justify-center pointer-events-auto">
           <a
             href="#about"
+            data-cursor="SCROLL"
             aria-label="Scroll to About Section"
             className="group flex flex-col items-center gap-2 text-xs font-mono text-neutral-500 hover:text-[#00f0ff] transition-colors"
           >

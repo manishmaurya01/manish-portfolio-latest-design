@@ -12,7 +12,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Handled smoothly by Lenis */
     color-scheme: dark;
     background-color: #070709;
   }
@@ -32,7 +32,7 @@
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: #070709;
@@ -46,6 +46,20 @@
   }
 }
 
+/* 3D Perspective & Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-2000 {
+  perspective: 2000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
 /* Glassmorphism & Surface Utilities */
 .glass-panel {
   background: rgba(13, 16, 26, 0.65);
@@ -55,12 +69,12 @@
 }
 
 .glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-panel-hover:hover {
-  border-color: rgba(0, 240, 255, 0.35);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -12px rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 240, 255, 0.15);
 }
 
 .glass-nav {
@@ -70,14 +84,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Background Grids & Dots */
+/* Background Grids & Ambient Glow */
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-.bg-dot-glow {
-  background: radial-gradient(circle 600px at 50% 200px, rgba(139, 92, 246, 0.15), rgba(0, 240, 255, 0.05), transparent 70%);
+  background-size: 32px 32px;
 }
 
 /* Text Gradients */
@@ -102,28 +112,66 @@
 /* Keyframe Animations */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px) rotate(1deg);
   }
 }
 
 .animate-float {
-  animation: float 5s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    opacity: 0.4;
+    opacity: 0.35;
     transform: scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.05);
+    opacity: 0.75;
+    transform: scale(1.06);
   }
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeReverse 32s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
 }

@@ -9,6 +9,7 @@ import AchievementSection from "@/components/AchievementSection";
 import AcademicJourneySection from "@/components/AcademicJourneySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import KineticMarquee from "@/components/common/KineticMarquee";
 
 export default function HomePage() {
   return (
@@ -18,8 +19,11 @@ export default function HomePage() {
 
       {/* Main Content Sections */}
       <main id="main-content" className="relative flex flex-col">
-        {/* 1. Hero Section with Interactive Canvas */}
+        {/* 1. Hero Section with Interactive 3D WebGL Torus Knot */}
         <HeroSection />
+
+        {/* Dynamic Kinetic Marquee Ribbon 1 */}
+        <KineticMarquee reverse={false} />
 
         {/* 2. Philosophy & About Section */}
         <AboutSection />
@@ -32,6 +36,20 @@ export default function HomePage() {
 
         {/* 5. Selected Work & Projects */}
         <ProjectsSection />
+
+        {/* Dynamic Kinetic Marquee Ribbon 2 (Reverse Direction) */}
+        <KineticMarquee
+          reverse={true}
+          items={[
+            "Parul University Hackathon 6.0 Finalist",
+            "Full-Stack Web Architecture",
+            "BCA 7.56 CGPA Distinction",
+            "React.js & Tailwind CSS Systems",
+            "High-Performance WebGL 3D",
+            "Automated Workflows with n8n",
+            "Available for Client Projects"
+          ]}
+        />
 
         {/* 6. Achievement Spotlight & Hackathon */}
         <AchievementSection />
