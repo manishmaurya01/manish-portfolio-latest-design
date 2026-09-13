@@ -6,8 +6,10 @@ import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
 import { Menu, X, ArrowUpRight, FileText } from "lucide-react";
 import ThemeToggle from "./common/ThemeToggle";
+import { useResumeModal } from "@/context/ResumeModalContext";
 
 export default function Navbar() {
+  const { openResumeModal } = useResumeModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -17,7 +19,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       // Simple active section detection based on scroll position
-      const sections = ["home", "about", "capabilities", "skills", "projects", "contact"];
+      const sections = ["home", "about", "capabilities", "tech-stack", "projects", "achievement", "journey", "contact"];
       const current = sections.find((sec) => {
         const el = document.getElementById(sec);
         if (el) {
@@ -93,16 +95,14 @@ export default function Navbar() {
         <div className="hidden sm:flex items-center gap-2">
           <ThemeToggle />
 
-          <a
-            href={siteConfig.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900/60 hover:border-stone-300 dark:hover:border-stone-700 text-xs font-medium text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-all shadow-xs"
+          <button
+            onClick={openResumeModal}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900/60 hover:border-amber-500/40 dark:hover:border-amber-500/40 text-xs font-medium text-stone-700 dark:text-stone-300 hover:text-amber-500 dark:hover:text-amber-400 transition-all shadow-xs cursor-pointer"
+            title="Preview Resume on site"
           >
-            <FileText className="w-3.5 h-3.5 text-stone-500 dark:text-stone-400" />
+            <FileText className="w-3.5 h-3.5 text-amber-500" />
             <span>Resume</span>
-          </a>
+          </button>
 
           <a
             href="#contact"
@@ -142,14 +142,16 @@ export default function Navbar() {
             ))}
 
             <div className="pt-4 flex flex-col gap-3">
-              <a
-                href={siteConfig.resumeUrl}
-                download
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openResumeModal();
+                }}
                 className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-stone-200 dark:border-white/15 bg-stone-100 dark:bg-white/5 text-sm font-medium text-stone-800 dark:text-white shadow-sm"
               >
                 <FileText className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                <span>Download Resume</span>
-              </a>
+                <span>Preview &amp; Download Resume</span>
+              </button>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}

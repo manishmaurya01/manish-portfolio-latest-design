@@ -13,9 +13,13 @@ export default function TechStackSection() {
 
   return (
     <section
-      id="skills"
-      className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200"
+      id="tech-stack"
+      className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200 scroll-mt-20"
     >
+      {/* Scroll anchor aliases */}
+      <div id="skills" className="absolute -top-20 pointer-events-none" />
+      <div id="techstack" className="absolute -top-20 pointer-events-none" />
+
       {/* Background ambient glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"

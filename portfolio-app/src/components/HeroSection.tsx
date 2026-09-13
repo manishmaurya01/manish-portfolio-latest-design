@@ -6,10 +6,12 @@ import { siteConfig } from "@/data/siteConfig";
 import Hero3DScene from "./3d/Hero3DScene";
 import TiltCard3D from "./3d/TiltCard3D";
 import ParallaxWrapper from "./common/ParallaxWrapper";
-import { ArrowDown, ArrowUpRight, Mail, Download, GraduationCap, Code2 } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Mail, Download, GraduationCap, Code2, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterXIcon } from "./SocialIcons";
+import { useResumeModal } from "@/context/ResumeModalContext";
 
 export default function HeroSection() {
+  const { openResumeModal } = useResumeModal();
   return (
     <section
       id="home"
@@ -77,15 +79,15 @@ export default function HeroSection() {
                 <ArrowUpRight className="w-4 h-4" />
               </a>
 
-              <a
-                href={siteConfig.resumeUrl}
-                download
+              <button
+                onClick={openResumeModal}
                 data-cursor="RESUME"
-                className="btn-secondary-tactile px-5 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 text-center"
+                className="btn-secondary-tactile px-5 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 text-center cursor-pointer"
+                title="Preview Resume on website"
               >
-                <Download className="w-4 h-4 text-stone-500 dark:text-stone-400" />
-                <span>Resume (PDF)</span>
-              </a>
+                <FileText className="w-4 h-4 text-amber-500" />
+                <span>Resume (Preview)</span>
+              </button>
 
               <a
                 href="#contact"

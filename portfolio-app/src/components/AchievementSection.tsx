@@ -13,9 +13,13 @@ export default function AchievementSection() {
 
   return (
     <section
-      id="achievements"
-      className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200"
+      id="achievement"
+      className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200 scroll-mt-20"
     >
+      {/* Scroll anchor aliases */}
+      <div id="achievements" className="absolute -top-20 pointer-events-none" />
+      <div id="archivements" className="absolute -top-20 pointer-events-none" />
+
       {/* Background ambient glow */}
       <div
         className="absolute top-1/2 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"

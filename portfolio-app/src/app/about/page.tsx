@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 import { educationList } from "@/data/education";
-import { ArrowLeft, Download, Sparkles, MapPin, GraduationCap, Code2 } from "lucide-react";
+import { ArrowLeft, Download, Sparkles, MapPin, GraduationCap, Code2, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground3D from "@/components/3d/AmbientBackground3D";
@@ -107,15 +107,24 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  {/* Download Resume Action */}
-                  <a
-                    href={siteConfig.resumeUrl}
-                    download
-                    className="btn-primary-tactile w-full py-2.5 px-4 text-xs text-stone-950 font-semibold flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Download Official Resume (PDF)</span>
-                  </a>
+                  {/* Resume Actions */}
+                  <div className="grid grid-cols-2 gap-2 w-full">
+                    <Link
+                      href="/resume"
+                      className="btn-secondary-tactile py-2.5 px-3 text-xs text-stone-700 dark:text-stone-300 font-semibold flex items-center justify-center gap-1.5"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-amber-500" />
+                      <span>Preview</span>
+                    </Link>
+                    <a
+                      href={siteConfig.resumeUrl}
+                      download="MANISH_MAURYA_RESUME.pdf"
+                      className="btn-primary-tactile py-2.5 px-3 text-xs text-stone-950 font-semibold flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Download</span>
+                    </a>
+                  </div>
 
                 </div>
               </TiltCard3D>

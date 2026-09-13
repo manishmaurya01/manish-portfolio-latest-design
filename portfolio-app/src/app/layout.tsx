@@ -6,6 +6,8 @@ import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar";
 import CustomCursor from "@/components/common/CustomCursor";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { ResumeModalProvider } from "@/context/ResumeModalContext";
+import ResumeModal from "@/components/ResumeModal";
 
 const sansFont = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -145,13 +147,16 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col relative transition-colors duration-200">
+      <body className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased selection:bg-amber-500 selection:text-stone-950 flex flex-col relative transition-colors duration-200">
         <ThemeProvider>
-          <ScrollProgressBar />
-          <CustomCursor />
-          <SmoothScrollProvider>
-            {children}
-          </SmoothScrollProvider>
+          <ResumeModalProvider>
+            <ScrollProgressBar />
+            <CustomCursor />
+            <SmoothScrollProvider>
+              {children}
+            </SmoothScrollProvider>
+            <ResumeModal />
+          </ResumeModalProvider>
         </ThemeProvider>
       </body>
     </html>

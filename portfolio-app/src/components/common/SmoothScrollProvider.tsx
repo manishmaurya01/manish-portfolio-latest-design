@@ -52,6 +52,22 @@ export default function SmoothScrollProvider({
 
     rafId = requestAnimationFrame(raf);
 
+    // Check if initial load has hash
+    if (window.location.hash) {
+      const hashId = window.location.hash.replace("#", "");
+      const aliasMap: Record<string, string> = {
+        skills: "tech-stack",
+        techstack: "tech-stack",
+        achievements: "achievement",
+        archivements: "achievement",
+      };
+      const targetId = aliasMap[hashId] || hashId;
+      setTimeout(() => {
+        const el = document.getElementById(targetId) || document.getElementById(hashId);
+        if (el) lenis.scrollTo(el, { offset: -60 });
+      }, 300);
+    }
+
     // Smooth scroll for internal hash anchors
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -59,19 +75,28 @@ export default function SmoothScrollProvider({
       if (!anchor) return;
 
       const href = anchor.getAttribute("href");
-      if (href && href.startsWith("/#")) {
-        const id = href.replace("/#", "");
-        const element = document.getElementById(id);
+      if (!href) return;
+
+      let id = "";
+      if (href.startsWith("/#")) {
+        id = href.replace("/#", "");
+      } else if (href.startsWith("#")) {
+        id = href.slice(1);
+      }
+
+      if (id) {
+        const aliasMap: Record<string, string> = {
+          skills: "tech-stack",
+          techstack: "tech-stack",
+          achievements: "achievement",
+          archivements: "achievement",
+        };
+        const targetId = aliasMap[id] || id;
+        const element = document.getElementById(targetId) || document.getElementById(id);
         if (element) {
           e.preventDefault();
           lenis.scrollTo(element, { offset: -60 });
-        }
-      } else if (href && href.startsWith("#")) {
-        const id = href.slice(1);
-        const element = document.getElementById(id);
-        if (element) {
-          e.preventDefault();
-          lenis.scrollTo(element, { offset: -60 });
+          window.history.pushState(null, "", `#${targetId}`);
         }
       }
     };
