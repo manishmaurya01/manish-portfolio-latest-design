@@ -36,7 +36,7 @@ export default function HeroCanvas() {
       alpha: number;
     }[] = [];
 
-    const colors = ["#00f0ff", "#8b5cf6", "#38bdf8", "#a855f7"];
+    const colors = ["#3b82f6", "#6366f1", "#60a5fa", "#94a3b8"];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({

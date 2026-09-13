@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/siteConfig";
 import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar";
 import CustomCursor from "@/components/common/CustomCursor";
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const sansFont = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -83,12 +84,29 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${sansFont.variable} ${displayFont.variable} ${monoFont.variable} dark`}
+      suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                try {
+                  var saved = localStorage.getItem('portfolio-theme');
+                  var isDark = saved ? saved === 'dark' : true;
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                } catch(e) {}
+
                 function purgeNetlify() {
                   var targets = [
                     'netlify-drawer',
@@ -127,12 +145,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[#070709] text-[#f4f4f7] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#070709] flex flex-col relative">
-        <ScrollProgressBar />
-        <CustomCursor />
-        <SmoothScrollProvider>
-          {children}
-        </SmoothScrollProvider>
+      <body className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col relative transition-colors duration-200">
+        <ThemeProvider>
+          <ScrollProgressBar />
+          <CustomCursor />
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ import KineticMarquee from "@/components/common/KineticMarquee";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-[#070709] text-[#f4f4f7] selection:bg-[#00f0ff] selection:text-[#070709] w-full max-w-full overflow-x-hidden">
+    <div className="relative min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[var(--accent)] selection:text-white w-full max-w-full overflow-x-hidden">
       {/* Top Navbar */}
       <Navbar />
 

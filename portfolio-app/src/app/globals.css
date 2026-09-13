@@ -2,38 +2,83 @@
 
 @layer base {
   :root {
-    --background: #070709;
-    --foreground: #f4f4f7;
-    --card-bg: #0d0f17;
-    --card-border: rgba(255, 255, 255, 0.08);
-    --accent-cyan: #00f0ff;
-    --accent-violet: #8b5cf6;
-    --muted: #94a3b8;
+    /* Dark Mode Defaults (Modern Executive Obsidian) */
+    --bg-primary: #090a0f;
+    --bg-secondary: #0e111a;
+    --bg-card: #121522;
+    --bg-card-subtle: rgba(18, 21, 34, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --accent-subtle: rgba(59, 130, 246, 0.12);
+    --accent-border: rgba(59, 130, 246, 0.3);
+    --badge-bg: rgba(255, 255, 255, 0.04);
+    --badge-border: rgba(255, 255, 255, 0.08);
+    --glow-1: rgba(59, 130, 246, 0.08);
+    --glow-2: rgba(99, 102, 241, 0.06);
+    --nav-bg: rgba(9, 10, 15, 0.82);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --card-hover-border: rgba(59, 130, 246, 0.4);
+  }
+
+  html.light {
+    /* Light Mode (Crisp Minimalist Paper & Slate) */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-subtle: rgba(255, 255, 255, 0.88);
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-glow: rgba(37, 99, 235, 0.12);
+    --accent-subtle: rgba(37, 99, 235, 0.08);
+    --accent-border: rgba(37, 99, 235, 0.25);
+    --badge-bg: #f1f5f9;
+    --badge-border: #e2e8f0;
+    --glow-1: rgba(37, 99, 235, 0.05);
+    --glow-2: rgba(79, 70, 229, 0.04);
+    --nav-bg: rgba(248, 250, 252, 0.88);
+    --nav-border: rgba(226, 232, 240, 0.85);
+    --card-hover-border: rgba(37, 99, 235, 0.4);
   }
 
   html {
     scroll-behavior: auto; /* Handled smoothly by Lenis on desktop */
     color-scheme: dark;
-    background-color: #070709;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     max-width: 100vw;
     width: 100%;
     overflow-x: hidden !important;
     position: relative;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.light {
+    color-scheme: light;
   }
 
   body {
-    background-color: #070709;
-    color: #f4f4f7;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     max-width: 100vw;
     width: 100%;
     overflow-x: hidden !important;
     position: relative;
-    selection-background-color: #00f0ff;
-    selection-color: #070709;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Prevent canvas, svg, images, or media from bursting container */
@@ -48,8 +93,8 @@
   }
 
   ::selection {
-    background: #00f0ff;
-    color: #070709;
+    background: var(--accent);
+    color: #ffffff;
   }
 
   /* Custom Scrollbar */
@@ -57,14 +102,14 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #070709;
+    background: var(--bg-primary);
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: var(--border-strong);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00f0ff;
+    background: var(--accent);
   }
 }
 
@@ -84,49 +129,69 @@
 
 /* Glassmorphism & Surface Utilities */
 .glass-panel {
-  background: rgba(13, 16, 26, 0.65);
+  background: var(--bg-card-subtle);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
 }
 
 .glass-panel-hover {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-panel-hover:hover {
-  border-color: rgba(0, 240, 255, 0.4);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 20px 40px -15px var(--accent-glow);
 }
 
 .glass-nav {
-  background: rgba(7, 7, 9, 0.75);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--nav-border);
 }
 
 /* Background Grids & Ambient Glow */
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(var(--border-strong) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Text Gradients */
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #00f0ff 100%);
+/* Executive Typography Gradients */
+.gradient-text-primary {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.light .gradient-text-primary {
+  background: linear-gradient(180deg, #0f172a 0%, #334155 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gradient-text-violet {
-  background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #8b5cf6 100%);
+.gradient-text-accent {
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.light .gradient-text-accent {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Backward compatibility mappings for existing gradient classes */
+.gradient-text-cyan,
+.gradient-text-violet,
 .gradient-text-glow {
-  background: linear-gradient(135deg, #ffffff 10%, #67e8f9 50%, #c084fc 100%);
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.light .gradient-text-cyan,
+html.light .gradient-text-violet,
+html.light .gradient-text-glow {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

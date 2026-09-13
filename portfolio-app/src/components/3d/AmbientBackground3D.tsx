@@ -45,11 +45,11 @@ export default function AmbientBackground3D({
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
-    const lightCyan = new THREE.PointLight(0x00f0ff, 2.5, 40);
+    const lightCyan = new THREE.PointLight(0x3b82f6, 2.0, 40);
     lightCyan.position.set(4, 4, 4);
     scene.add(lightCyan);
 
-    const lightViolet = new THREE.PointLight(0x8b5cf6, 2.5, 40);
+    const lightViolet = new THREE.PointLight(0x6366f1, 2.0, 40);
     lightViolet.position.set(-4, -4, 4);
     scene.add(lightViolet);
 
@@ -66,10 +66,10 @@ export default function AmbientBackground3D({
       }
 
       const wireMat = new THREE.MeshBasicMaterial({
-        color: 0x00f0ff,
+        color: 0x3b82f6,
         wireframe: true,
         transparent: true,
-        opacity: 0.18,
+        opacity: 0.12,
       });
 
       mesh = new THREE.Mesh(geometry, wireMat);
@@ -82,8 +82,8 @@ export default function AmbientBackground3D({
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const cCyan = new THREE.Color(0x00f0ff);
-    const cViolet = new THREE.Color(0x8b5cf6);
+    const cCyan = new THREE.Color(0x3b82f6);
+    const cViolet = new THREE.Color(0x6366f1);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
       positions[i] = (Math.random() - 0.5) * 16;

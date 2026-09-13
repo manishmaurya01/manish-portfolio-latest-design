@@ -33,34 +33,34 @@ export default function Hero3DScene() {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const lightCyan = new THREE.PointLight(0x00f0ff, 3, 50);
+    const lightCyan = new THREE.PointLight(0x3b82f6, 2.2, 50);
     lightCyan.position.set(6, 6, 6);
     scene.add(lightCyan);
 
-    const lightViolet = new THREE.PointLight(0x8b5cf6, 2.5, 50);
+    const lightViolet = new THREE.PointLight(0x6366f1, 1.8, 50);
     lightViolet.position.set(-6, -6, 6);
     scene.add(lightViolet);
 
     // 4. Subtle Background Geometric Wireframe Halo (Positioned to the right behind portrait)
     const haloGeometry = new THREE.TorusGeometry(3.5, 0.4, 24, 80);
     const haloMaterial = new THREE.MeshBasicMaterial({
-      color: 0x00f0ff,
+      color: 0x3b82f6,
       wireframe: true,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.12,
     });
     const haloMesh = new THREE.Mesh(haloGeometry, haloMaterial);
     haloMesh.position.set(4, 0, -4);
     haloMesh.rotation.x = Math.PI / 4;
     scene.add(haloMesh);
 
-    // Inner subtle violet ring
+    // Inner subtle indigo ring
     const innerHaloGeo = new THREE.RingGeometry(2.6, 2.65, 64);
     const innerHaloMat = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
+      color: 0x6366f1,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.18,
     });
     const innerHaloMesh = new THREE.Mesh(innerHaloGeo, innerHaloMat);
     innerHaloMesh.position.set(4, 0, -4);
@@ -68,13 +68,13 @@ export default function Hero3DScene() {
     scene.add(innerHaloMesh);
 
     // 5. Star / Light Dust Particle Cloud
-    const particleCount = 220;
+    const particleCount = 200;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const c1 = new THREE.Color(0x00f0ff);
-    const c2 = new THREE.Color(0x8b5cf6);
+    const c1 = new THREE.Color(0x3b82f6);
+    const c2 = new THREE.Color(0x6366f1);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
       positions[i] = (Math.random() - 0.5) * 26;

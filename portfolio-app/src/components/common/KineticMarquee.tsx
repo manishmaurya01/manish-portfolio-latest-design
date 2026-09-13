@@ -32,21 +32,21 @@ export default function KineticMarquee({
 
   return (
     <div
-      className={`relative w-full overflow-hidden py-4 border-y border-white/[0.08] bg-black/40 backdrop-blur-sm select-none ${className}`}
+      className={`relative w-full overflow-hidden py-4 border-y border-[var(--border-subtle)] bg-[var(--bg-card)]/40 backdrop-blur-sm select-none ${className}`}
       aria-hidden="true"
     >
       {/* Side gradient fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#070709] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#070709] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
 
       <div className={reverse ? "animate-marquee-reverse" : "animate-marquee"}>
         {displayItems.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-4 px-6 text-xs sm:text-sm font-mono font-medium tracking-wider uppercase text-neutral-400 hover:text-[#00f0ff] transition-colors"
+            className="flex items-center gap-4 px-6 text-xs sm:text-sm font-mono font-medium tracking-wider uppercase text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
           >
             <span>{item}</span>
-            <Sparkles className="w-3 h-3 text-[#00f0ff]/60 shrink-0" />
+            <Sparkles className="w-3 h-3 text-[var(--accent)]/60 shrink-0" />
           </div>
         ))}
       </div>

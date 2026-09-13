@@ -7,10 +7,10 @@ import TiltCard3D from "./3d/TiltCard3D";
 
 export default function AcademicJourneySection() {
   return (
-    <section id="journey" className="py-24 relative bg-[#070709] border-t border-white/[0.06] w-full max-w-full overflow-hidden">
+    <section id="journey" className="py-24 relative bg-[var(--bg-primary)] border-t border-slate-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200">
       {/* Background radial accent */}
       <div
-        className="absolute top-1/2 left-0 w-96 h-96 bg-[#00f0ff]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"
+        className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"
         aria-hidden="true"
       />
 
@@ -18,14 +18,14 @@ export default function AcademicJourneySection() {
         
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#00f0ff] mb-2 inline-block">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2 inline-block font-semibold">
             Education &amp; Foundations
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight font-display mb-4">
             Academic Journey &amp; <br />
-            <span className="gradient-text-cyan">Milestones.</span>
+            <span className="gradient-text-accent">Milestones.</span>
           </h2>
-          <p className="text-neutral-400 text-sm sm:text-base">
+          <p className="text-slate-600 dark:text-neutral-400 text-sm sm:text-base">
             Structured formal education in computer science, software engineering principles, and data fundamentals.
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function AcademicJourneySection() {
         <div className="relative max-w-4xl mx-auto">
           
           {/* Vertical Center Line with Glowing Gradient */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00f0ff] via-[#8b5cf6] to-cyan-500/20 -translate-x-1/2 shadow-[0_0_8px_rgba(0,240,255,0.4)]" />
+          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-600 via-indigo-600 to-blue-500/20 -translate-x-1/2 shadow-[0_0_8px_rgba(59,130,246,0.25)]" />
 
           <div className="space-y-12">
             {educationList.map((item, idx) => {
@@ -48,9 +48,9 @@ export default function AcademicJourneySection() {
                 >
                   
                   {/* Center Node / Dot with Pulse Ring */}
-                  <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-[#00f0ff] bg-[#070709] flex items-center justify-center z-10 shadow-lg shadow-[#00f0ff]/30 group">
-                    <span className="animate-ping absolute inline-flex h-4 w-4 rounded-full bg-[#00f0ff] opacity-40"></span>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#00f0ff]" />
+                  <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-blue-600 dark:border-blue-400 bg-white dark:bg-[#070709] flex items-center justify-center z-10 shadow-md shadow-blue-500/25 group">
+                    <span className="animate-ping absolute inline-flex h-4 w-4 rounded-full bg-blue-500 opacity-40"></span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400" />
                   </div>
 
                   {/* Spacer for 2-column balance on desktop */}
@@ -62,45 +62,45 @@ export default function AcademicJourneySection() {
                       maxTilt={8}
                       dataCursor="DEGREE"
                     >
-                      <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-[#111420] to-[#0a0c13] hover:border-[#00f0ff]/40 transition-all duration-300 shadow-xl group">
+                      <div className="p-6 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#111420] dark:to-[#0a0c13] hover:border-blue-500/40 transition-all duration-300 shadow-sm dark:shadow-xl group">
                         
                         {/* Top Row: Degree & Status */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                          <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-300">
+                          <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-700 dark:text-blue-300 font-semibold">
                             {item.score}
                           </span>
-                          <div className="flex items-center gap-1 text-[11px] text-neutral-400 font-mono">
-                            <Calendar className="w-3 h-3 text-[#00f0ff]" />
+                          <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-neutral-400 font-mono">
+                            <Calendar className="w-3 h-3 text-blue-600 dark:text-blue-400" />
                             <span>{item.period}</span>
                           </div>
                         </div>
 
                         {/* Degree Title */}
-                        <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#00f0ff] transition-colors mb-1 font-display">
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1 font-display">
                           {item.degree}
                         </h3>
 
                         {/* Institution & Location */}
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-400 mb-3">
-                          <span className="font-medium text-neutral-300">{item.institution}</span>
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-neutral-400 mb-3">
+                          <span className="font-medium text-slate-800 dark:text-neutral-300">{item.institution}</span>
                           <span>•</span>
                           <span className="flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-[#00f0ff]" />
+                            <MapPin className="w-3 h-3 text-blue-600 dark:text-blue-400" />
                             {item.location}
                           </span>
                         </div>
 
                         {/* Description */}
-                        <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-4">
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 leading-relaxed mb-4">
                           {item.description}
                         </p>
 
                         {/* Highlights */}
-                        <div className="pt-3 border-t border-white/10 flex flex-wrap gap-1.5">
+                        <div className="pt-3 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-1.5">
                           {item.highlights.map((h, i) => (
                             <span
                               key={i}
-                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.03] border border-white/5 text-neutral-400"
+                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 text-slate-600 dark:text-neutral-400"
                             >
                               {h}
                             </span>

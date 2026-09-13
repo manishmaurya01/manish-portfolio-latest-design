@@ -45,15 +45,15 @@ export default function CertificateModal({
       />
 
       {/* Modal Dialog Content */}
-      <div className="relative w-full max-w-4xl rounded-2xl border border-white/20 bg-[#0d0f17] p-4 sm:p-6 shadow-2xl z-10 max-h-[92vh] flex flex-col">
+      <div className="relative w-full max-w-4xl rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] p-4 sm:p-6 shadow-2xl z-10 max-h-[92vh] flex flex-col">
         
         {/* Header Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+        <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]">
           <div>
-            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+            <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)] tracking-tight">
               {title}
             </h3>
-            <p className="text-xs text-neutral-400 font-mono">
+            <p className="text-xs text-[var(--text-muted)] font-mono">
               Official Verification Document
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function CertificateModal({
             <a
               href={pdfSrc}
               download
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] text-xs font-semibold shadow transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs font-semibold shadow transition-all"
             >
               <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Download PDF</span>
@@ -71,7 +71,7 @@ export default function CertificateModal({
             <button
               onClick={onClose}
               aria-label="Close modal"
-              className="p-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/15 text-neutral-400 hover:text-white transition-colors"
+              className="p-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-secondary)] hover:bg-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -79,7 +79,7 @@ export default function CertificateModal({
         </div>
 
         {/* Certificate Viewer Preview */}
-        <div className="relative flex-1 min-h-[300px] sm:min-h-[480px] my-4 rounded-xl overflow-hidden border border-white/10 bg-black/50 flex items-center justify-center">
+        <div className="relative flex-1 min-h-[300px] sm:min-h-[480px] my-4 rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex items-center justify-center">
           <Image
             src={imageSrc}
             alt={title}
@@ -91,13 +91,13 @@ export default function CertificateModal({
         </div>
 
         {/* Footer info */}
-        <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs text-neutral-400">
+        <div className="flex items-center justify-between pt-3 border-t border-[var(--border-subtle)] text-xs text-[var(--text-muted)]">
           <span>Awarded to Manish Maurya</span>
           <a
             href={pdfSrc}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#00f0ff] hover:underline flex items-center gap-1"
+            className="text-[var(--accent)] hover:underline flex items-center gap-1"
           >
             <span>Open PDF in new tab</span>
             <ExternalLink className="w-3 h-3" />

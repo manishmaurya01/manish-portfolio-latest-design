@@ -15,8 +15,8 @@ export default function FloatingGeometry3D({
   shape = "icosahedron",
   size = 180,
   className = "relative flex items-center justify-center",
-  glowColor = "#00f0ff",
-  wireframeColor = "#8b5cf6",
+  glowColor = "#3b82f6",
+  wireframeColor = "#6366f1",
 }: FloatingGeometry3DProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
 
