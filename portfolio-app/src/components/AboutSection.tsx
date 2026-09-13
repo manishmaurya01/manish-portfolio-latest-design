@@ -59,9 +59,9 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
   return (
     <div
       ref={elementRef}
-      className="p-3.5 rounded-xl border border-stone-200 dark:border-white/10 bg-stone-100/80 dark:bg-white/[0.02] backdrop-blur-sm text-center hover:border-amber-500/40 dark:hover:border-amber-500/40 transition-all duration-300 group shadow-sm"
+      className="p-3.5 rounded-xl border border-stone-200/90 dark:border-stone-800 bg-stone-50/80 dark:bg-[#121215]/80 backdrop-blur-sm text-center transition-all duration-200 group shadow-xs hover:border-stone-300 dark:hover:border-stone-700"
     >
-      <p className="text-xl sm:text-2xl font-black text-stone-900 dark:text-white font-mono tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+      <p className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white font-mono tracking-tight transition-colors">
         {targetNumber > 0 ? `${count}${suffix}` : value}
       </p>
       <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-1 leading-tight">
@@ -73,10 +73,10 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200">
-      {/* Ambient background glow */}
+    <section id="about" className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-stone-800/80 w-full max-w-full overflow-hidden transition-colors duration-200">
+      {/* Ambient background glow (subtle) */}
       <div
-        className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"
+        className="absolute top-1/2 left-0 w-80 h-80 bg-amber-500/3 rounded-full blur-3xl pointer-events-none -translate-y-1/2"
         aria-hidden="true"
       />
 
@@ -84,12 +84,12 @@ export default function AboutSection() {
         
         {/* Editorial Quote Banner */}
         <div className="mb-20 text-center max-w-3xl mx-auto">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-3 inline-block font-semibold">
-            Philosophy &amp; Mindset
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 mb-3 inline-block font-medium">
+            // 01 — Philosophy &amp; Mindset
           </span>
           <blockquote className="text-2xl sm:text-4xl font-extrabold text-stone-900 dark:text-white tracking-tight leading-snug font-display">
             &ldquo;I don’t just write code — <br className="hidden sm:inline" />
-            <span className="gradient-text-accent">I create experiences.</span>&rdquo;
+            <span className="text-stone-500 dark:text-stone-400 font-normal">I create experiences.</span>&rdquo;
           </blockquote>
           <p className="mt-3 text-stone-600 dark:text-stone-400 text-sm sm:text-base font-light">
             Digital solutions designed for clarity, high performance, and human intuition.
@@ -101,35 +101,35 @@ export default function AboutSection() {
           {/* Left Column: 3D Tilt Photo Stack Visual */}
           <div className="lg:col-span-5 flex justify-center">
             <TiltCard3D
-              maxTilt={15}
+              maxTilt={5}
               dataCursor="ABOUT"
               className="w-72 sm:w-80 h-96 cursor-pointer"
             >
               {/* Back Layer 3 */}
-              <div className="absolute inset-0 rounded-2xl bg-stone-200/60 dark:bg-stone-800/40 border border-stone-300 dark:border-white/10 rotate-6 translate-x-3 translate-y-3 opacity-60" />
+              <div className="absolute inset-0 rounded-2xl bg-stone-200/50 dark:bg-stone-900/40 border border-stone-300/60 dark:border-stone-800 rotate-2 translate-x-1.5 translate-y-1.5 opacity-60 pointer-events-none" />
               
               {/* Middle Layer 2 */}
-              <div className="absolute inset-0 rounded-2xl bg-stone-100 dark:bg-stone-900/80 border border-stone-200 dark:border-white/10 -rotate-3 -translate-x-2 translate-y-1 opacity-80" />
+              <div className="absolute inset-0 rounded-2xl bg-stone-100 dark:bg-stone-900/70 border border-stone-200 dark:border-stone-800 -rotate-1 -translate-x-1 translate-y-0.5 opacity-80 pointer-events-none" />
 
               {/* Foreground Image Card */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-stone-200 dark:border-white/20 shadow-2xl bg-stone-900 group">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-stone-200/90 dark:border-stone-800 shadow-xl bg-stone-900 group">
                 <Image
                   src="/assets/manish_about_new.jpg"
                   alt="Manish Kumar portrait"
                   fill
                   sizes="(max-width: 768px) 288px, 320px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-center group-hover:scale-103 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Overlay Badge */}
-                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-white/80 dark:bg-black/75 backdrop-blur-md border border-stone-200 dark:border-white/10 flex items-center justify-between shadow-lg">
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3 rounded-xl bg-white/90 dark:bg-[#121215]/90 backdrop-blur-md border border-stone-200/80 dark:border-stone-800 flex items-center justify-between shadow-md">
                   <div>
                     <p className="text-xs font-semibold text-stone-900 dark:text-white">Manish Kumar</p>
                     <p className="text-[10px] text-amber-600 dark:text-amber-400 font-mono">Creative Technologist</p>
                   </div>
                   <div className="flex items-center gap-1 text-[11px] text-stone-600 dark:text-stone-300">
-                    <MapPin className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                    <MapPin className="w-3 h-3 text-stone-400 dark:text-stone-400" />
                     <span>Gujarat, IN</span>
                   </div>
                 </div>
@@ -140,14 +140,13 @@ export default function AboutSection() {
           {/* Right Column: Bio & Core Values */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>About Me</span>
+            <div className="text-xs font-mono uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 mb-2 font-medium">
+              // 02 — About Me
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white tracking-tight font-display mb-6">
               Engineering with precision, <br />
-              <span className="gradient-text-accent">designing with passion.</span>
+              <span className="text-stone-500 dark:text-stone-400 font-normal">designing with passion.</span>
             </h2>
 
             <div className="space-y-4 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
@@ -160,27 +159,27 @@ export default function AboutSection() {
             </div>
 
             {/* Micro Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 pt-6 border-t border-stone-200 dark:border-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 pt-6 border-t border-stone-200 dark:border-stone-800">
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-0.5 shrink-0" />
                 <span className="text-xs text-stone-700 dark:text-stone-300">
                   <strong className="text-stone-900 dark:text-white font-medium">Clean UI &amp; Intuitive UX</strong> across all screen viewports
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-0.5 shrink-0" />
                 <span className="text-xs text-stone-700 dark:text-stone-300">
                   <strong className="text-stone-900 dark:text-white font-medium">Full-Stack Cloud Delivery</strong> from frontend to database
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-0.5 shrink-0" />
                 <span className="text-xs text-stone-700 dark:text-stone-300">
                   <strong className="text-stone-900 dark:text-white font-medium">Workflow Automation</strong> using n8n and modern APIs
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-0.5 shrink-0" />
                 <span className="text-xs text-stone-700 dark:text-stone-300">
                   <strong className="text-stone-900 dark:text-white font-medium">Continuous Growth</strong> and Hackathon competition experience
                 </span>

@@ -21,14 +21,14 @@ export default function AcademicJourneySection() {
         
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 inline-block font-semibold">
-            Education &amp; Foundations
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 mb-2 inline-block font-medium">
+            // 07 — Education &amp; Foundations
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-stone-900 dark:text-white tracking-tight font-display mb-4">
             Academic Journey &amp; <br />
             <span className="gradient-text-accent">Milestones.</span>
           </h2>
-          <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base">
+          <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base leading-relaxed">
             Structured formal education in computer science, software engineering principles, and data fundamentals.
           </p>
         </div>
@@ -36,8 +36,8 @@ export default function AcademicJourneySection() {
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
           
-          {/* Vertical Center Line with Glowing Gradient */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700/20 -translate-x-1/2 shadow-[0_0_8px_rgba(245,158,11,0.25)]" />
+          {/* Vertical Center Line (Architectural 1px Rule) */}
+          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-800 -translate-x-1/2" />
 
           <div className="space-y-12">
             {educationList.map((item, idx) => {
@@ -50,10 +50,9 @@ export default function AcademicJourneySection() {
                   } gap-6 sm:gap-12`}
                 >
                   
-                  {/* Center Node / Dot with Pulse Ring */}
-                  <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 w-8 h-8 rounded-full border-2 border-amber-500 dark:border-amber-400 bg-white dark:bg-[#09090b] flex items-center justify-center z-10 shadow-md shadow-amber-500/25 group">
-                    <span className="animate-ping absolute inline-flex h-4 w-4 rounded-full bg-amber-500 opacity-40"></span>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500 dark:bg-amber-400" />
+                  {/* Center Precision Node */}
+                  <div className="absolute left-4 sm:left-1/2 top-5 -translate-x-1/2 w-5 h-5 rounded-full border border-amber-500/80 bg-white dark:bg-[#09090b] flex items-center justify-center z-10 shadow-2xs">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                   </div>
 
                   {/* Spacer for 2-column balance on desktop */}
@@ -62,33 +61,33 @@ export default function AcademicJourneySection() {
                   {/* Card Content with 3D Tilt */}
                   <div className="w-full sm:w-1/2 pl-10 sm:pl-0">
                     <TiltCard3D
-                      maxTilt={8}
+                      maxTilt={4}
                       dataCursor="DEGREE"
                     >
-                      <div className="p-6 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#18181b] dark:to-[#121215] hover:border-amber-500/40 transition-all duration-300 shadow-sm dark:shadow-xl group">
+                      <div className="p-5 sm:p-6 rounded-xl border border-stone-200/90 dark:border-stone-800 bg-white dark:bg-[#141417] hover:border-stone-300 dark:hover:border-stone-700 transition-all duration-200 shadow-xs dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] group">
                         
                         {/* Top Row: Degree & Status */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                          <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-300 font-semibold">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-stone-200 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900/60 text-stone-700 dark:text-stone-300 font-medium">
                             {item.score}
                           </span>
                           <div className="flex items-center gap-1 text-[11px] text-stone-500 dark:text-stone-400 font-mono">
-                            <Calendar className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                            <Calendar className="w-3 h-3 text-stone-400 dark:text-stone-500" />
                             <span>{item.period}</span>
                           </div>
                         </div>
 
                         {/* Degree Title */}
-                        <h3 className="text-lg sm:text-xl font-bold text-stone-900 dark:text-white tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mb-1 font-display">
+                        <h3 className="text-lg sm:text-xl font-bold text-stone-900 dark:text-white tracking-tight group-hover:text-amber-500 transition-colors mb-1 font-display">
                           {item.degree}
                         </h3>
 
                         {/* Institution & Location */}
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-stone-600 dark:text-stone-400 mb-3">
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-stone-600 dark:text-stone-400 mb-3">
                           <span className="font-medium text-stone-800 dark:text-stone-300">{item.institution}</span>
                           <span>•</span>
                           <span className="flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                            <MapPin className="w-3 h-3 text-stone-400 dark:text-stone-500" />
                             {item.location}
                           </span>
                         </div>
@@ -99,11 +98,11 @@ export default function AcademicJourneySection() {
                         </p>
 
                         {/* Highlights */}
-                        <div className="pt-3 border-t border-stone-200 dark:border-white/10 flex flex-wrap gap-1.5">
+                        <div className="pt-3 border-t border-stone-100 dark:border-stone-800/80 flex flex-wrap gap-1.5">
                           {item.highlights.map((h, i) => (
                             <span
                               key={i}
-                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-100 dark:bg-white/[0.03] border border-stone-200 dark:border-white/5 text-stone-600 dark:text-stone-400"
+                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-50 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800 text-stone-600 dark:text-stone-400"
                             >
                               {h}
                             </span>

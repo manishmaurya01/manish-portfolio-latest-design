@@ -50,9 +50,8 @@ export default function AboutPage() {
 
           {/* Section Header */}
           <div className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 backdrop-blur-md text-xs font-mono text-amber-600 dark:text-amber-400 mb-4 font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>BIOGRAPHY &amp; CRAFT</span>
+            <div className="text-xs font-mono uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 mb-3 font-medium">
+              // Profile — Biography &amp; Craft
             </div>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-stone-900 dark:text-white tracking-tight font-display mb-4">
               Engineering Rigor, <br />
@@ -64,53 +63,47 @@ export default function AboutPage() {
           </div>
 
           {/* Main Two-Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-20">
             
             {/* Left Column: 3D Tilt Portrait Card */}
             <div className="lg:col-span-5 flex justify-center">
-              <TiltCard3D maxTilt={12} className="w-full max-w-md">
-                <div className="relative rounded-3xl border border-stone-200 dark:border-white/20 bg-white dark:bg-gradient-to-b dark:from-[#18181b]/95 dark:to-[#121215]/98 backdrop-blur-2xl p-6 shadow-sm dark:shadow-2xl overflow-hidden group">
+              <TiltCard3D maxTilt={4} className="w-full max-w-md">
+                <div className="relative rounded-2xl border border-stone-200/90 dark:border-stone-800 bg-white dark:bg-[#141417] backdrop-blur-xl p-5 shadow-sm dark:shadow-[0_16px_40px_rgba(0,0,0,0.35)] overflow-hidden group">
                   
-                  {/* Cyber HUD Brackets */}
-                  <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-amber-500/60 dark:border-amber-400/80 pointer-events-none" />
-                  <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-amber-500/60 dark:border-amber-400/80 pointer-events-none" />
-                  <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-amber-600/60 dark:border-amber-500/80 pointer-events-none" />
-                  <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-amber-600/60 dark:border-amber-500/80 pointer-events-none" />
-
                   {/* Photo Container */}
-                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-stone-200 dark:border-white/15 bg-stone-900 mb-6 shadow-inner">
+                  <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden border border-stone-200/80 dark:border-stone-850 bg-stone-900 mb-5 shadow-inner">
                     <Image
                       src="/assets/manish_about_new.jpg"
                       alt="Manish Kumar portrait"
                       fill
                       priority
                       sizes="(max-width: 768px) 100vw, 400px"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-75" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent opacity-75" />
 
                     {/* Overlay Location Tag */}
-                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-white/85 dark:bg-black/75 backdrop-blur-md border border-stone-200 dark:border-white/10 flex items-center justify-between shadow-md">
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 p-2.5 rounded-lg bg-white/90 dark:bg-black/80 backdrop-blur-md border border-stone-200 dark:border-white/10 flex items-center justify-between shadow-md">
                       <div>
                         <p className="text-xs font-semibold text-stone-900 dark:text-white">Manish Kumar</p>
                         <p className="text-[10px] text-amber-600 dark:text-amber-400 font-mono font-medium">Full-Stack Dev &amp; Designer</p>
                       </div>
                       <div className="flex items-center gap-1 text-[11px] text-stone-600 dark:text-stone-300">
-                        <MapPin className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                        <MapPin className="w-3.5 h-3.5 text-stone-400 dark:text-stone-400" />
                         <span>Gujarat, IN</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Live Quick Metrics */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-stone-100 dark:bg-white/[0.03] border border-stone-200 dark:border-white/5 text-center">
+                  <div className="grid grid-cols-2 gap-2.5 mb-5">
+                    <div className="p-3 rounded-lg bg-stone-50 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800 text-center">
                       <span className="block text-xl font-bold text-stone-900 dark:text-white font-mono">7+</span>
-                      <span className="text-[11px] text-stone-500 dark:text-stone-400">Client Projects</span>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400">Client Projects</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-stone-100 dark:bg-white/[0.03] border border-stone-200 dark:border-white/5 text-center">
-                      <span className="block text-xl font-bold text-amber-600 dark:text-amber-400 font-mono">14+</span>
-                      <span className="text-[11px] text-stone-500 dark:text-stone-400">Tech Stacks</span>
+                    <div className="p-3 rounded-lg bg-stone-50 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800 text-center">
+                      <span className="block text-xl font-bold text-stone-900 dark:text-white font-mono">14+</span>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400">Tech Stacks</span>
                     </div>
                   </div>
 
@@ -118,7 +111,7 @@ export default function AboutPage() {
                   <a
                     href={siteConfig.resumeUrl}
                     download
-                    className="w-full py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 transition-all active:scale-95"
+                    className="btn-primary-tactile w-full py-2.5 px-4 text-xs text-stone-950 font-semibold flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download Official Resume (PDF)</span>
@@ -132,7 +125,7 @@ export default function AboutPage() {
             <div className="lg:col-span-7 space-y-8">
               
               {/* Core Bio Panel */}
-              <div className="p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#18181b]/80 backdrop-blur-xl shadow-sm dark:shadow-xl">
+              <div className="p-6 sm:p-8 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#18181b]/80 backdrop-blur-xl shadow-sm dark:shadow-xl">
                 <h2 className="text-2xl font-bold text-stone-900 dark:text-white mb-4 font-display">
                   Who I Am &amp; What Drives Me
                 </h2>
@@ -150,7 +143,7 @@ export default function AboutPage() {
               </div>
 
               {/* Interactive 3D Geometry Card with Skills Focus */}
-              <div className="p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-white/10 bg-stone-50/80 dark:bg-gradient-to-r dark:from-[#18181b]/80 dark:via-[#141418]/85 dark:to-[#18181b]/80 backdrop-blur-xl flex flex-col sm:flex-row items-center gap-6 shadow-sm">
+              <div className="p-6 sm:p-8 rounded-2xl border border-stone-200 dark:border-white/10 bg-stone-50/80 dark:bg-gradient-to-r dark:from-[#18181b]/80 dark:via-[#141418]/85 dark:to-[#18181b]/80 backdrop-blur-xl flex flex-col sm:flex-row items-center gap-6 shadow-sm">
                 <div className="shrink-0">
                   <FloatingGeometry3D shape="icosahedron" size={130} glowColor="#f59e0b" wireframeColor="#d97706" />
                 </div>
@@ -173,7 +166,7 @@ export default function AboutPage() {
               </div>
 
               {/* Education Timeline Cards */}
-              <div className="p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#18181b]/80 backdrop-blur-xl space-y-6 shadow-sm dark:shadow-xl">
+              <div className="p-6 sm:p-8 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#18181b]/80 backdrop-blur-xl space-y-6 shadow-sm dark:shadow-xl">
                 <div className="flex items-center justify-between">
                   <h2 className="text-xl font-bold text-stone-900 dark:text-white font-display flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-amber-600 dark:text-amber-400" />

@@ -33,16 +33,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--bg-secondary)] border-t border-stone-200 dark:border-white/[0.08] pt-16 pb-12 text-stone-500 dark:text-stone-400 text-xs w-full max-w-full overflow-hidden transition-colors duration-200">
+    <footer className="bg-[var(--bg-secondary)] border-t border-stone-200 dark:border-stone-800 pt-16 pb-12 text-stone-500 dark:text-stone-400 text-xs w-full max-w-full overflow-hidden transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-200 dark:border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-200 dark:border-stone-800">
           
           {/* Brand Col */}
           <div className="md:col-span-5 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 flex items-center justify-center shadow-xs">
+            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 flex items-center justify-center shadow-xs">
                 <Image
                   src="/assets/logo.png"
                   alt="Manish Kumar"
@@ -51,7 +51,7 @@ export default function Footer() {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="text-base font-bold text-stone-900 dark:text-white tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <span className="text-[15px] font-bold text-stone-900 dark:text-white tracking-tight group-hover:text-amber-500 transition-colors">
                 Manish Kumar
               </span>
             </Link>
@@ -61,16 +61,16 @@ export default function Footer() {
             </p>
 
             {/* Live IST Clock */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.02] font-mono text-[11px] text-stone-700 dark:text-stone-300">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              <span>Gujarat, IN:</span>
-              <span className="text-stone-900 dark:text-white font-semibold">{time || "12:00 PM IST"}</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/60 dark:bg-stone-900/60 font-mono text-[11px] text-stone-700 dark:text-stone-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="text-stone-500 dark:text-stone-400">Gujarat, IN:</span>
+              <span className="text-stone-900 dark:text-white font-medium">{time || "12:00 PM IST"}</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <span className="text-xs font-mono uppercase tracking-wider text-stone-900 dark:text-white font-bold block mb-4">
+            <span className="text-xs font-mono uppercase tracking-[0.15em] text-stone-900 dark:text-white font-semibold block mb-4">
               Navigation
             </span>
             <ul className="space-y-2.5">
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors text-xs font-medium"
                   >
                     {link.name}
                   </a>
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Connect & Social */}
           <div className="md:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-wider text-stone-900 dark:text-white font-bold block mb-4">
+            <span className="text-xs font-mono uppercase tracking-[0.15em] text-stone-900 dark:text-white font-semibold block mb-4">
               Social Channels
             </span>
             <p className="text-xs text-stone-600 dark:text-stone-400 mb-4">
@@ -101,7 +101,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
+                className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/60 dark:bg-stone-900/60 hover:bg-stone-200/60 dark:hover:bg-stone-800/80 hover:border-stone-300 dark:hover:border-stone-700 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors shadow-xs"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>
@@ -110,7 +110,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
+                className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/60 dark:bg-stone-900/60 hover:bg-stone-200/60 dark:hover:bg-stone-800/80 hover:border-stone-300 dark:hover:border-stone-700 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors shadow-xs"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -119,14 +119,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
+                className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/60 dark:bg-stone-900/60 hover:bg-stone-200/60 dark:hover:bg-stone-800/80 hover:border-stone-300 dark:hover:border-stone-700 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors shadow-xs"
               >
                 <TwitterXIcon className="w-4 h-4" />
               </a>
               <a
                 href={siteConfig.socials.email}
                 aria-label="Email"
-                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
+                className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/60 dark:bg-stone-900/60 hover:bg-stone-200/60 dark:hover:bg-stone-800/80 hover:border-stone-300 dark:hover:border-stone-700 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors shadow-xs"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -144,10 +144,10 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-white/10 hover:border-amber-500/40 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 hover:border-stone-300 dark:hover:border-stone-700 bg-stone-100/60 dark:bg-stone-900/60 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-stone-400 dark:text-stone-500" />
           </button>
         </div>
 

@@ -16,31 +16,30 @@ export default function NotFound() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-lg w-full rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-2xl p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-lg w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl p-8 sm:p-10 shadow-xl flex flex-col items-center text-center">
         {/* Floating 3D Geometry Core */}
         <div className="mb-4">
           <FloatingGeometry3D shape="octahedron" size={140} glowColor="#f59e0b" wireframeColor="#d97706" />
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-secondary)] text-xs font-mono text-amber-500 dark:text-amber-400 mb-4">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>ERROR CODE 404</span>
-        </div>
+        <span className="text-[11px] font-mono uppercase tracking-wider text-amber-500 dark:text-amber-400 px-3 py-1 rounded-md border border-amber-500/20 bg-amber-500/5 mb-4">
+          // Error 404 — Page Not Found
+        </span>
 
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight font-display mb-3">
-          Coordinate Lost
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[var(--text-primary)] tracking-[-0.035em] font-display mb-3">
+          Page Not Found
         </h1>
 
         <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-8">
-          The digital route you requested does not exist or has been shifted across cyberspace.
+          The route you requested could not be located. It may have been moved or archived.
         </p>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-95"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-stone-950 font-bold text-xs sm:text-sm btn-primary-tactile transition-all active:scale-95"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Return to Safe Orbit (Home)</span>
+          <span>Return to Home</span>
         </Link>
       </div>
     </div>

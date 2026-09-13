@@ -37,8 +37,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-full ${
         scrolled
-          ? "glass-nav py-3.5 shadow-lg shadow-black/5 dark:shadow-black/50"
-          : "bg-transparent py-5"
+          ? "glass-nav py-3 shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+          : "bg-transparent py-4.5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -46,29 +46,29 @@ export default function Navbar() {
         {/* Brand / Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-3 focus:outline-none"
+          className="group flex items-center gap-2.5 focus:outline-none"
         >
-          <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 flex items-center justify-center transition-transform group-hover:scale-105">
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 flex items-center justify-center transition-transform group-hover:scale-105 shadow-xs">
             <Image
               src="/assets/logo.png"
               alt="Manish Kumar"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               className="object-contain p-1"
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-stone-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-              Manish<span className="text-amber-600 dark:text-amber-400">.</span>
+            <span className="text-[15px] font-bold tracking-tight text-stone-900 dark:text-white group-hover:text-amber-500 transition-colors">
+              Manish<span className="text-amber-500">.</span>
             </span>
-            <span className="text-[10px] uppercase tracking-wider text-stone-500 dark:text-stone-400 font-mono">
-              Developer
+            <span className="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-mono">
+              Portfolio
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 rounded-full border border-stone-200 dark:border-white/10 bg-stone-100/90 dark:bg-stone-900/60 backdrop-blur-md px-4 py-1.5 shadow-sm dark:shadow-inner">
+        <nav className="hidden md:flex items-center gap-1 rounded-full border border-stone-200/80 dark:border-stone-800/80 bg-stone-100/80 dark:bg-[#121215]/80 backdrop-blur-xl px-2 py-1 shadow-xs">
           {siteConfig.navLinks.map((link) => {
             const sectionKey = link.href.replace("/#", "");
             const isActive = activeSection === sectionKey;
@@ -76,20 +76,21 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`px-3 py-1 text-[12px] font-medium rounded-full transition-all duration-180 flex items-center gap-1.5 ${
                   isActive
-                    ? "bg-amber-500/15 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300 font-semibold"
-                    : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-white/5"
+                    ? "bg-white dark:bg-stone-800 text-stone-900 dark:text-white font-semibold shadow-xs"
+                    : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 hover:bg-stone-200/50 dark:hover:bg-white/[0.04]"
                 }`}
               >
-                {link.name}
+                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />}
+                <span>{link.name}</span>
               </a>
             );
           })}
         </nav>
 
         {/* Right Action Stack: Theme Toggle + Resume + Connect */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        <div className="hidden sm:flex items-center gap-2">
           <ThemeToggle />
 
           <a
@@ -97,15 +98,15 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             download
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-white/15 bg-stone-100 dark:bg-white/5 hover:bg-stone-200/80 dark:hover:bg-white/10 text-xs font-medium text-stone-700 dark:text-stone-200 hover:text-stone-900 dark:hover:text-white transition-all duration-200 shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 bg-stone-100/80 dark:bg-stone-900/60 hover:border-stone-300 dark:hover:border-stone-700 text-xs font-medium text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-all shadow-xs"
           >
-            <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+            <FileText className="w-3.5 h-3.5 text-stone-500 dark:text-stone-400" />
             <span>Resume</span>
           </a>
 
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-semibold shadow-md shadow-amber-500/20 transition-all duration-200 active:scale-95"
+            className="btn-primary-tactile group relative inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs text-stone-950 font-semibold"
           >
             <span>Let&apos;s Connect</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

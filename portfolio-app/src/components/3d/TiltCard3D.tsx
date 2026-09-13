@@ -13,7 +13,7 @@ interface TiltCard3DProps {
 export default function TiltCard3D({
   children,
   className = "",
-  maxTilt = 12,
+  maxTilt = 5,
   dataCursor,
   onClick,
 }: TiltCard3DProps) {
@@ -44,13 +44,13 @@ export default function TiltCard3D({
     const rotateY = percentX * maxTilt;
 
     setTransform(
-      `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`
+      `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.006, 1.006, 1.006)`
     );
 
     setGlarePosition({
       x: (x / rect.width) * 100,
       y: (y / rect.height) * 100,
-      opacity: 0.18,
+      opacity: 0.07,
     });
   };
 
@@ -68,7 +68,7 @@ export default function TiltCard3D({
       data-cursor={dataCursor}
       style={{
         transform,
-        transition: "transform 0.18s ease-out",
+        transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
         transformStyle: "preserve-3d",
       }}
       className={`relative preserve-3d group ${className}`}
@@ -77,7 +77,7 @@ export default function TiltCard3D({
       <div
         className="pointer-events-none absolute inset-0 z-30 rounded-[inherit] transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle 320px at ${glarePosition.x}% ${glarePosition.y}%, rgba(0, 240, 255, ${glarePosition.opacity}), transparent 70%)`,
+          background: `radial-gradient(circle 380px at ${glarePosition.x}% ${glarePosition.y}%, rgba(255, 255, 255, ${glarePosition.opacity}), transparent 60%)`,
         }}
         aria-hidden="true"
       />

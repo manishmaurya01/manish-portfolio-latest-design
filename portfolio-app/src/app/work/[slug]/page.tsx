@@ -86,58 +86,51 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
 
           {/* Header Metadata */}
           <div className="mb-12">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-[var(--accent)] px-3.5 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2.5 mb-4">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-amber-500 dark:text-amber-400 px-3 py-1 rounded-md border border-amber-500/20 bg-amber-500/5">
                 {project.category}
               </span>
-              <span className="text-xs font-mono text-[var(--text-muted)] px-3 py-1 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-secondary)]">
+              <span className="text-[11px] font-mono text-[var(--text-muted)] px-3 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-secondary)]">
                 Year: {project.year}
               </span>
-              <span className="text-xs font-mono text-emerald-500 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 flex items-center gap-1.5">
+              <span className="text-[11px] font-mono text-emerald-500 px-3 py-1 rounded-md border border-emerald-500/20 bg-emerald-500/10 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Production Ready</span>
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight mb-4 font-display">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-primary)] tracking-[-0.035em] mb-4 font-display">
               {project.title}
             </h1>
-            <p className="text-lg sm:text-xl text-[var(--text-secondary)] font-light max-w-3xl mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-[var(--text-secondary)] font-normal max-w-3xl mb-8 leading-relaxed">
               {project.subtitle}
             </p>
 
-            {/* Quick stats pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl shadow-xl">
+            {/* Quick stats grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl shadow-sm">
               <div className="p-2">
-                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase">Role</span>
+                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase tracking-wider">Role</span>
                 <span className="text-xs font-semibold text-[var(--text-primary)]">{project.role}</span>
               </div>
               <div className="p-2">
-                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase">Timeline</span>
+                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase tracking-wider">Timeline</span>
                 <span className="text-xs font-semibold text-[var(--text-primary)]">{project.year}</span>
               </div>
               <div className="p-2">
-                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase">Deployment</span>
-                <span className="text-xs font-semibold text-[var(--accent)]">{project.highlights[0]?.value || "Live"}</span>
+                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase tracking-wider">Deployment</span>
+                <span className="text-xs font-semibold text-amber-500 dark:text-amber-400">{project.highlights[0]?.value || "Live"}</span>
               </div>
               <div className="p-2">
-                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase">Status</span>
+                <span className="text-[11px] font-mono text-[var(--text-muted)] block uppercase tracking-wider">Status</span>
                 <span className="text-xs font-semibold text-emerald-500">Active / Online</span>
               </div>
             </div>
           </div>
 
-          {/* Main Hero Showcase Media with 3D Tilt & Cyber Frame */}
+          {/* Main Hero Showcase Media with 3D Tilt */}
           <div className="mb-14">
-            <TiltCard3D maxTilt={6} className="w-full">
-              <div className="relative rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-2xl shadow-2xl group">
-                
-                {/* HUD Corner Brackets */}
-                <div className="absolute top-4 left-4 z-20 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)] pointer-events-none opacity-60" />
-                <div className="absolute top-4 right-4 z-20 w-4 h-4 border-t-2 border-r-2 border-[var(--accent)] pointer-events-none opacity-60" />
-                <div className="absolute bottom-4 left-4 z-20 w-4 h-4 border-b-2 border-l-2 border-[var(--accent)] pointer-events-none opacity-60" />
-                <div className="absolute bottom-4 right-4 z-20 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)] pointer-events-none opacity-60" />
-
+            <TiltCard3D maxTilt={4} className="w-full">
+              <div className="relative rounded-2xl overflow-hidden border border-stone-200/80 dark:border-stone-800 bg-[var(--bg-card)] shadow-2xl group">
                 <div className="relative aspect-video w-full overflow-hidden bg-black/40">
                   <Image
                     src={project.image}
@@ -147,19 +140,18 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                     sizes="(max-width: 1200px) 100vw, 1024px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent flex items-end p-6 sm:p-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent flex items-end p-6 sm:p-8">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-stone-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-95"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-stone-950 font-bold text-xs sm:text-sm btn-primary-tactile transition-all active:scale-95"
                     >
                       <span>Launch Live Application</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
-
               </div>
             </TiltCard3D>
           </div>
@@ -171,11 +163,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             <div className="lg:col-span-8 space-y-8">
               
               {/* Executive Summary */}
-              <div className="p-6 sm:p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl">
-                <div className="flex items-center gap-2 text-xs font-mono text-[var(--accent)] mb-3">
-                  <Sparkles className="w-4 h-4 text-[var(--accent)]" />
-                  <span>PROJECT ARCHITECTURE</span>
-                </div>
+              <div className="p-6 sm:p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)]">
+                <span className="text-[11px] font-mono tracking-wider text-amber-500 dark:text-amber-400 block uppercase mb-2">
+                  // Architecture &amp; Overview
+                </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3 font-display">
                   Project Overview
                 </h2>
@@ -186,10 +177,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
 
               {/* Challenge & Solution Cards with Parallax Depth */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <ParallaxWrapper speed={6} maxMouseOffset={6}>
-                  <div className="h-full p-6 rounded-2xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-md">
-                    <h3 className="text-sm font-bold font-display text-amber-500 flex items-center gap-2 mb-2 font-mono uppercase tracking-wider">
-                      <span>The Challenge</span>
+                <ParallaxWrapper speed={4} maxMouseOffset={4}>
+                  <div className="h-full p-6 rounded-xl border border-stone-200 dark:border-stone-800 bg-[var(--bg-card)]">
+                    <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-amber-500 mb-2">
+                      The Challenge
                     </h3>
                     <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
                       {project.problem}
@@ -197,10 +188,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   </div>
                 </ParallaxWrapper>
 
-                <ParallaxWrapper speed={-6} maxMouseOffset={6}>
-                  <div className="h-full p-6 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-md">
-                    <h3 className="text-sm font-bold font-display text-emerald-500 flex items-center gap-2 mb-2 font-mono uppercase tracking-wider">
-                      <span>The Solution</span>
+                <ParallaxWrapper speed={-4} maxMouseOffset={4}>
+                  <div className="h-full p-6 rounded-xl border border-stone-200 dark:border-stone-800 bg-[var(--bg-card)]">
+                    <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-emerald-500 mb-2">
+                      The Solution
                     </h3>
                     <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
                       {project.solution}
@@ -215,7 +206,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   <h3 className="text-base font-bold text-[var(--text-primary)] font-display">
                     Interface Snapshot
                   </h3>
-                  <div className="relative aspect-video rounded-2xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-secondary)] shadow-xl">
+                  <div className="relative aspect-video rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-secondary)] shadow-lg">
                     <Image
                       src={project.secondaryImage}
                       alt={`${project.title} secondary interface`}
@@ -228,7 +219,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               )}
 
               {/* Core Features */}
-              <div className="p-6 sm:p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl">
+              <div className="p-6 sm:p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)]">
                 <h2 className="text-xl font-bold text-[var(--text-primary)] mb-4 font-display">
                   Key Capabilities &amp; Implementation Details
                 </h2>
@@ -236,9 +227,9 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   {project.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 p-3.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] hover:border-[var(--accent)]/40 transition-colors"
+                      className="flex items-start gap-3 p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-secondary)] hover:border-stone-300 dark:hover:border-stone-700 transition-colors"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-[var(--accent)] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">{feature}</span>
                     </div>
                   ))}
@@ -251,9 +242,9 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             <div className="lg:col-span-4 space-y-6">
               
               {/* Interactive 3D Polyhedron Widget */}
-              <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl text-center flex flex-col items-center">
+              <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] text-center flex flex-col items-center">
                 <FloatingGeometry3D shape="dodecahedron" size={150} glowColor="#f59e0b" wireframeColor="#d97706" />
-                <span className="text-[11px] font-mono text-[var(--accent)] uppercase tracking-wider mt-2">
+                <span className="text-[11px] font-mono text-amber-500 uppercase tracking-wider mt-2">
                   Interactive 3D Geometry
                 </span>
                 <p className="text-[10px] text-[var(--text-muted)] mt-1">
@@ -262,7 +253,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               </div>
 
               {/* Tech Stack Card */}
-              <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl">
+              <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)]">
                 <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)] block mb-4">
                   Tech Stack Applied
                 </span>
@@ -281,7 +272,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-stone-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all active:scale-95"
+                  className="w-full py-3 px-4 rounded-lg text-stone-950 font-bold text-xs flex items-center justify-center gap-2 btn-primary-tactile transition-all active:scale-95"
                 >
                   <span>Visit Live Demo</span>
                   <ExternalLink className="w-3.5 h-3.5" />

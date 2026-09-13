@@ -71,9 +71,8 @@ export default function CapabilitiesSection() {
         {/* Section Heading with 3D floating object */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/10 text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-3 font-semibold">
-              <Sparkles className="w-3 h-3 text-amber-600 dark:text-amber-400" />
-              <span>Capabilities &amp; Services</span>
+            <div className="text-xs font-mono uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 mb-3 font-medium">
+              // 03 — Capabilities &amp; Services
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-stone-900 dark:text-white tracking-tight font-display mb-4">
               What I Do &amp; <br />
@@ -85,8 +84,8 @@ export default function CapabilitiesSection() {
           </div>
 
           <div className="hidden md:flex flex-col items-center">
-            <FloatingGeometry3D shape="icosahedron" size={130} glowColor="#f59e0b" wireframeColor="#d97706" />
-            <span className="text-[10px] font-mono text-stone-400 dark:text-stone-400 mt-1">Interactive 3D Mesh</span>
+            <FloatingGeometry3D shape="icosahedron" size={120} glowColor="#f59e0b" wireframeColor="#d97706" />
+            <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 mt-1">Interactive 3D Mesh</span>
           </div>
         </div>
 
@@ -95,26 +94,26 @@ export default function CapabilitiesSection() {
           {capabilities.map((item) => {
             const Icon = item.icon;
             return (
-              <ParallaxWrapper key={item.id} speed={item.speed} maxMouseOffset={8} className="h-full">
+              <ParallaxWrapper key={item.id} speed={item.speed > 0 ? 3 : -2} maxMouseOffset={6} className="h-full">
                 <TiltCard3D
-                  maxTilt={10}
+                  maxTilt={5}
                   dataCursor="SERVICE"
                   className="h-full"
                 >
-                  <div className="h-full rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#18181b]/90 dark:via-[#141418]/90 dark:to-[#0f0f12]/95 backdrop-blur-xl p-7 flex flex-col justify-between transition-all duration-300 hover:border-amber-500/40 shadow-sm dark:shadow-xl group">
+                  <div className="h-full rounded-2xl border border-stone-200/90 dark:border-stone-800 bg-white dark:bg-[#141417] backdrop-blur-xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-stone-300 dark:hover:border-stone-700 shadow-xs dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] group">
                     <div>
                       {/* Top Bar: Icon + Category Tag */}
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-white/5 border border-stone-200 dark:border-white/10 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:bg-amber-500/10 group-hover:border-amber-500/30 transition-colors">
-                          <Icon className="w-6 h-6" />
+                        <div className="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-300 group-hover:text-amber-500 transition-colors">
+                          <Icon className="w-5 h-5" />
                         </div>
-                        <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.03] text-stone-600 dark:text-stone-400 font-medium">
+                        <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 text-stone-600 dark:text-stone-400 font-medium">
                           {item.tag}
                         </span>
                       </div>
 
                       {/* Title & Description */}
-                      <h3 className="text-xl font-bold text-stone-900 dark:text-white mb-3 tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors font-display">
+                      <h3 className="text-xl font-bold text-stone-900 dark:text-white mb-2.5 tracking-tight group-hover:text-amber-500 transition-colors font-display">
                         {item.title}
                       </h3>
                       <p className="text-stone-600 dark:text-stone-300 text-xs sm:text-sm leading-relaxed mb-6">
@@ -125,7 +124,7 @@ export default function CapabilitiesSection() {
                       <ul className="space-y-2.5 mb-6">
                         {item.points.map((point, i) => (
                           <li key={i} className="flex items-start gap-2.5 text-xs text-stone-700 dark:text-stone-300">
-                            <CheckCircle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                            <CheckCircle className="w-3.5 h-3.5 text-stone-400 dark:text-stone-500 mt-0.5 shrink-0" />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -133,11 +132,11 @@ export default function CapabilitiesSection() {
                     </div>
 
                     {/* Tech Pills Footer */}
-                    <div className="pt-4 border-t border-stone-200 dark:border-white/10 flex flex-wrap gap-1.5">
+                    <div className="pt-4 border-t border-stone-100 dark:border-stone-800/80 flex flex-wrap gap-1.5">
                       {item.tech.map((t, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded-md bg-stone-100 dark:bg-white/[0.04] border border-stone-200 dark:border-white/10 text-[10px] font-mono text-stone-600 dark:text-stone-300"
+                          className="px-2 py-0.5 rounded bg-stone-50 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800 text-[10px] font-mono text-stone-600 dark:text-stone-400"
                         >
                           {t}
                         </span>
