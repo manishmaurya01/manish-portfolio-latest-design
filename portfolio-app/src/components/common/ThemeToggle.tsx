@@ -31,15 +31,15 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       className={`relative inline-flex items-center justify-center gap-2 p-2 rounded-xl border transition-all duration-200 cursor-pointer ${
         isDark
-          ? "border-white/10 bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white hover:border-white/20"
-          : "border-slate-200 bg-slate-100 hover:bg-slate-200/80 text-slate-700 hover:text-slate-900 hover:border-slate-300 shadow-sm"
+          ? "border-white/10 bg-white/5 hover:bg-white/10 text-stone-300 hover:text-white hover:border-amber-500/40"
+          : "border-stone-200 bg-stone-100 hover:bg-stone-200/80 text-stone-700 hover:text-stone-900 hover:border-amber-500/40 shadow-sm"
       } ${className}`}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isDark ? (
           <Sun className="w-4 h-4 text-amber-400 transition-transform duration-300 rotate-0 scale-100" />
         ) : (
-          <Moon className="w-4 h-4 text-slate-700 transition-transform duration-300 rotate-0 scale-100" />
+          <Moon className="w-4 h-4 text-stone-700 transition-transform duration-300 rotate-0 scale-100" />
         )}
       </div>
       {showLabel && (

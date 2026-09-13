@@ -20,19 +20,19 @@ export default function HeroSection() {
 
       {/* 2. Massive Typographic Watermark in Background */}
       <div
-        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[14vw] font-black tracking-tighter text-slate-900/[0.03] dark:text-white/[0.02] select-none pointer-events-none whitespace-nowrap z-0 font-display uppercase"
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[14vw] font-black tracking-tighter text-stone-900/[0.03] dark:text-white/[0.02] select-none pointer-events-none whitespace-nowrap z-0 font-display uppercase"
         aria-hidden="true"
       >
         MANISH MAURYA
       </div>
 
-      {/* 3. Subtle studio lighting orbs */}
+      {/* 3. Warm Titanium & Amber studio lighting */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-gradient-to-tr from-blue-600/10 via-indigo-600/5 to-transparent rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-gradient-to-tr from-amber-500/10 via-orange-600/5 to-transparent rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       ></div>
       <div
-        className="absolute top-1/2 right-0 sm:right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-gradient-to-b from-indigo-600/10 via-blue-600/5 to-transparent rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 right-0 sm:right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-gradient-to-b from-amber-600/10 via-yellow-600/5 to-transparent rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       ></div>
 
@@ -43,21 +43,21 @@ export default function HeroSection() {
           <div className="lg:col-span-7 flex flex-col items-start text-left pointer-events-auto w-full max-w-full">
             
             {/* Minimalist Live Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/90 dark:bg-white/[0.04] backdrop-blur-md text-[11px] sm:text-xs font-mono text-slate-700 dark:text-neutral-300 mb-5 shadow-sm max-w-full">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-stone-200 dark:border-white/10 bg-stone-100/90 dark:bg-white/[0.04] backdrop-blur-md text-[11px] sm:text-xs font-mono text-stone-700 dark:text-stone-300 mb-5 shadow-sm max-w-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               <span className="tracking-wide truncate">Full-Stack Engineer &amp; UI/UX Craftsman</span>
             </div>
 
             {/* Kinetic Headline with Executive Contrast */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-[-0.03em] text-slate-900 dark:text-white leading-[1.04] mb-5 font-display break-words w-full">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-[-0.03em] text-stone-900 dark:text-white leading-[1.04] mb-5 font-display break-words w-full">
               Crafting <br />
               <span className="gradient-text-accent">Digital Products</span> <br />
-              <span className="text-slate-500 dark:text-neutral-400 font-light">&amp; Experiences.</span>
+              <span className="text-stone-500 dark:text-stone-400 font-light">&amp; Experiences.</span>
             </h1>
 
             {/* Confident Bio */}
-            <p className="max-w-xl text-sm sm:text-base lg:text-lg text-slate-600 dark:text-neutral-300 font-normal leading-relaxed mb-8">
-              Hi, I’m <strong className="text-slate-900 dark:text-white font-semibold">Manish Kumar</strong>. 
+            <p className="max-w-xl text-sm sm:text-base lg:text-lg text-stone-600 dark:text-stone-300 font-normal leading-relaxed mb-8">
+              Hi, I’m <strong className="text-stone-900 dark:text-white font-semibold">Manish Kumar</strong>. 
               I design and engineer reactive web applications, scalable full-stack architectures, and automated workflows with craft and performance.
             </p>
 
@@ -66,7 +66,7 @@ export default function HeroSection() {
               <a
                 href="#projects"
                 data-cursor="WORK"
-                className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 text-white dark:text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all duration-200 active:scale-95 cursor-pointer text-center"
+                className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all duration-200 active:scale-95 cursor-pointer text-center"
               >
                 <span>View Selected Work</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -76,42 +76,42 @@ export default function HeroSection() {
                 href={siteConfig.resumeUrl}
                 download
                 data-cursor="RESUME"
-                className="px-6 py-3.5 rounded-xl border border-slate-200 dark:border-white/15 bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200/80 dark:hover:bg-white/[0.08] hover:border-slate-300 dark:hover:border-white/30 text-slate-800 dark:text-white font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 text-center shadow-sm"
+                className="px-6 py-3.5 rounded-xl border border-stone-200 dark:border-white/15 bg-stone-100 dark:bg-white/[0.04] hover:bg-stone-200/80 dark:hover:bg-white/[0.08] hover:border-amber-500/40 text-stone-800 dark:text-stone-100 font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 text-center shadow-sm"
               >
-                <Download className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <Download className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <span>Resume (PDF)</span>
               </a>
 
               <a
                 href="#contact"
                 data-cursor="TALK"
-                className="px-5 py-3.5 rounded-xl border border-slate-200 dark:border-white/10 hover:border-blue-500/40 text-slate-700 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white bg-slate-100/50 dark:bg-transparent font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors text-center"
+                className="px-5 py-3.5 rounded-xl border border-stone-200 dark:border-white/10 hover:border-amber-500/40 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white bg-stone-100/50 dark:bg-transparent font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors text-center"
               >
                 <span>Let&apos;s Connect</span>
               </a>
             </div>
 
             {/* Quick Metrics Strip */}
-            <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-8 pt-5 border-t border-slate-200 dark:border-white/10 w-full mb-6 text-center sm:text-left">
+            <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-8 pt-5 border-t border-stone-200 dark:border-white/10 w-full mb-6 text-center sm:text-left">
               <div>
-                <span className="block text-xl sm:text-3xl font-black text-slate-900 dark:text-white font-display">7+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-neutral-400 font-mono">Projects</span>
+                <span className="block text-xl sm:text-3xl font-black text-stone-900 dark:text-white font-display">7+</span>
+                <span className="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400 font-mono">Projects</span>
               </div>
-              <div className="w-px h-8 bg-slate-200 dark:bg-white/10 hidden sm:block" />
+              <div className="w-px h-8 bg-stone-200 dark:bg-white/10 hidden sm:block" />
               <div>
-                <span className="block text-xl sm:text-3xl font-black text-blue-600 dark:text-blue-400 font-display">14+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-neutral-400 font-mono">Tech Stacks</span>
+                <span className="block text-xl sm:text-3xl font-black text-amber-600 dark:text-amber-400 font-display">14+</span>
+                <span className="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400 font-mono">Tech Stacks</span>
               </div>
-              <div className="w-px h-8 bg-slate-200 dark:bg-white/10 hidden sm:block" />
+              <div className="w-px h-8 bg-stone-200 dark:bg-white/10 hidden sm:block" />
               <div>
-                <span className="block text-xl sm:text-3xl font-black text-indigo-600 dark:text-indigo-400 font-display">Parul 6.0</span>
-                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-neutral-400 font-mono">Hackathon</span>
+                <span className="block text-xl sm:text-3xl font-black text-amber-700 dark:text-amber-300 font-display">Parul 6.0</span>
+                <span className="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400 font-mono">Hackathon</span>
               </div>
             </div>
 
             {/* Social Links Row */}
             <div className="flex items-center gap-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-neutral-500 mr-1">
+              <span className="text-xs font-mono uppercase tracking-wider text-stone-400 dark:text-stone-500 mr-1">
                 Follow:
               </span>
               <a
@@ -120,7 +120,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
                 data-cursor="GITHUB"
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.03] hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-neutral-300 transition-all shadow-sm"
+                className="p-2.5 rounded-xl border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.03] hover:border-amber-500/40 hover:text-amber-600 dark:hover:text-amber-400 text-stone-600 dark:text-stone-300 transition-all shadow-sm"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>
@@ -130,7 +130,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
                 data-cursor="LINKEDIN"
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.03] hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-neutral-300 transition-all shadow-sm"
+                className="p-2.5 rounded-xl border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.03] hover:border-amber-500/40 hover:text-amber-600 dark:hover:text-amber-400 text-stone-600 dark:text-stone-300 transition-all shadow-sm"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -140,7 +140,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="Twitter / X Profile"
                 data-cursor="TWITTER"
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.03] hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-neutral-300 transition-all shadow-sm"
+                className="p-2.5 rounded-xl border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.03] hover:border-amber-500/40 hover:text-amber-600 dark:hover:text-amber-400 text-stone-600 dark:text-stone-300 transition-all shadow-sm"
               >
                 <TwitterXIcon className="w-4 h-4" />
               </a>
@@ -148,7 +148,7 @@ export default function HeroSection() {
                 href={siteConfig.socials.email}
                 aria-label="Email Manish"
                 data-cursor="EMAIL"
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.03] hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-neutral-300 transition-all shadow-sm"
+                className="p-2.5 rounded-xl border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.03] hover:border-amber-500/40 hover:text-amber-600 dark:hover:text-amber-400 text-stone-600 dark:text-stone-300 transition-all shadow-sm"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -162,19 +162,19 @@ export default function HeroSection() {
               
               {/* Atmospheric Backlight Halo */}
               <div
-                className="absolute inset-0 sm:-inset-4 bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-transparent rounded-[2.5rem] sm:rounded-[3rem] blur-2xl opacity-70 pointer-events-none"
+                className="absolute inset-0 sm:-inset-4 bg-gradient-to-tr from-amber-500/20 via-orange-500/15 to-transparent rounded-[2.5rem] sm:rounded-[3rem] blur-2xl opacity-70 pointer-events-none"
                 aria-hidden="true"
               />
 
               {/* 3D Tilt Wrapper */}
               <TiltCard3D maxTilt={9} dataCursor="MANISH" className="w-full max-w-full">
-                <div className="relative rounded-[2rem] sm:rounded-[2.5rem] border border-slate-200/80 dark:border-white/15 bg-white dark:bg-gradient-to-b dark:from-[#141829]/90 dark:via-[#0a0d17]/95 dark:to-[#070709] backdrop-blur-2xl p-3 sm:p-4 shadow-xl dark:shadow-2xl overflow-hidden group w-full">
+                <div className="relative rounded-[2rem] sm:rounded-[2.5rem] border border-stone-200/80 dark:border-white/15 bg-white dark:bg-gradient-to-b dark:from-[#18181b]/95 dark:to-[#121215]/98 backdrop-blur-2xl p-3 sm:p-4 shadow-xl dark:shadow-2xl overflow-hidden group w-full">
                   
                   {/* Portrait Container */}
-                  <div className="relative w-full aspect-[3/3.8] rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-slate-900 shadow-inner">
+                  <div className="relative w-full aspect-[3/3.8] rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-stone-900 shadow-inner">
                     
                     {/* Subtle Spotlight behind head */}
-                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-transparent rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-tr from-amber-500/20 via-yellow-500/10 to-transparent rounded-full blur-2xl pointer-events-none" />
 
                     {/* Official Portrait Image */}
                     <Image
@@ -187,20 +187,20 @@ export default function HeroSection() {
                     />
 
                     {/* Soft Gradient at Bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-85 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-85 pointer-events-none" />
 
                     {/* Floating Chip 1: Education Badge */}
                     <ParallaxWrapper speed={10} maxMouseOffset={8} className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20">
-                      <div className="flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 dark:bg-black/75 backdrop-blur-xl border border-slate-700 dark:border-white/20 text-[10px] sm:text-[11px] font-mono text-blue-300 dark:text-blue-200 shadow-xl">
-                        <GraduationCap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-400" />
+                      <div className="flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-stone-900/80 dark:bg-black/80 backdrop-blur-xl border border-stone-700 dark:border-white/20 text-[10px] sm:text-[11px] font-mono text-amber-300 shadow-xl">
+                        <GraduationCap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
                         <span>MCA @ Parul Univ</span>
                       </div>
                     </ParallaxWrapper>
 
                     {/* Floating Chip 2: Tech Badge */}
                     <ParallaxWrapper speed={-8} maxMouseOffset={8} className="absolute bottom-4 left-3 sm:bottom-5 sm:left-4 z-20">
-                      <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl bg-slate-900/85 dark:bg-black/80 backdrop-blur-xl border border-slate-700 dark:border-white/20 text-[11px] sm:text-xs font-mono text-white shadow-2xl">
-                        <Code2 className="w-3.5 h-3.5 text-blue-400" />
+                      <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl bg-stone-900/85 dark:bg-black/85 backdrop-blur-xl border border-stone-700 dark:border-white/20 text-[11px] sm:text-xs font-mono text-white shadow-2xl">
+                        <Code2 className="w-3.5 h-3.5 text-amber-400" />
                         <span>Full-Stack &amp; n8n</span>
                       </div>
                     </ParallaxWrapper>
@@ -210,10 +210,10 @@ export default function HeroSection() {
                   {/* Clean Bottom Name Bar */}
                   <div className="px-2 sm:px-3 pt-3 pb-1.5 flex items-center justify-between">
                     <div>
-                      <h2 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight font-display">
+                      <h2 className="text-sm sm:text-lg font-bold text-stone-900 dark:text-white tracking-tight font-display">
                         Manish Kumar
                       </h2>
-                      <p className="text-[11px] sm:text-xs font-mono text-blue-600 dark:text-blue-400">
+                      <p className="text-[11px] sm:text-xs font-mono text-amber-600 dark:text-amber-400">
                         Gujarat, India
                       </p>
                     </div>
@@ -237,11 +237,11 @@ export default function HeroSection() {
             href="#about"
             data-cursor="SCROLL"
             aria-label="Scroll to About Section"
-            className="group flex flex-col items-center gap-2 text-xs font-mono text-slate-400 dark:text-neutral-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="group flex flex-col items-center gap-2 text-xs font-mono text-stone-400 dark:text-stone-500 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
           >
             <span>EXPLORE PROFILE</span>
-            <div className="w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center group-hover:border-blue-500/40 transition-colors">
-              <ArrowDown className="w-3.5 h-3.5 animate-bounce text-blue-600 dark:text-blue-400" />
+            <div className="w-8 h-8 rounded-full border border-stone-200 dark:border-white/10 flex items-center justify-center group-hover:border-amber-500/40 transition-colors">
+              <ArrowDown className="w-3.5 h-3.5 animate-bounce text-amber-600 dark:text-amber-400" />
             </div>
           </a>
         </div>

@@ -33,16 +33,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--bg-secondary)] border-t border-slate-200 dark:border-white/[0.08] pt-16 pb-12 text-slate-500 dark:text-neutral-400 text-xs w-full max-w-full overflow-hidden transition-colors duration-200">
+    <footer className="bg-[var(--bg-secondary)] border-t border-stone-200 dark:border-white/[0.08] pt-16 pb-12 text-stone-500 dark:text-stone-400 text-xs w-full max-w-full overflow-hidden transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200 dark:border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-200 dark:border-white/[0.08]">
           
           {/* Brand Col */}
           <div className="md:col-span-5 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 flex items-center justify-center shadow-xs">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 flex items-center justify-center shadow-xs">
                 <Image
                   src="/assets/logo.png"
                   alt="Manish Kumar"
@@ -51,26 +51,26 @@ export default function Footer() {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="text-base font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <span className="text-base font-bold text-stone-900 dark:text-white tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 Manish Kumar
               </span>
             </Link>
 
-            <p className="text-slate-600 dark:text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            <p className="text-stone-600 dark:text-stone-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
               Web Developer, UI/UX Designer &amp; Programmer building modern websites, digital products, and creative web experiences.
             </p>
 
             {/* Live IST Clock */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.02] font-mono text-[11px] text-slate-700 dark:text-neutral-300">
-              <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/[0.02] font-mono text-[11px] text-stone-700 dark:text-stone-300">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
               <span>Gujarat, IN:</span>
-              <span className="text-slate-900 dark:text-white font-semibold">{time || "12:00 PM IST"}</span>
+              <span className="text-stone-900 dark:text-white font-semibold">{time || "12:00 PM IST"}</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <span className="text-xs font-mono uppercase tracking-wider text-slate-900 dark:text-white font-bold block mb-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-stone-900 dark:text-white font-bold block mb-4">
               Navigation
             </span>
             <ul className="space-y-2.5">
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -89,10 +89,10 @@ export default function Footer() {
 
           {/* Connect & Social */}
           <div className="md:col-span-4">
-            <span className="text-xs font-mono uppercase tracking-wider text-slate-900 dark:text-white font-bold block mb-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-stone-900 dark:text-white font-bold block mb-4">
               Social Channels
             </span>
-            <p className="text-xs text-slate-600 dark:text-neutral-400 mb-4">
+            <p className="text-xs text-stone-600 dark:text-stone-400 mb-4">
               Follow along with my ongoing builds, experiments, and open-source contributions.
             </p>
             <div className="flex items-center gap-2">
@@ -101,7 +101,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="p-2.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs"
+                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>
@@ -110,7 +110,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs"
+                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -119,14 +119,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="p-2.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs"
+                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
               >
                 <TwitterXIcon className="w-4 h-4" />
               </a>
               <a
                 href={siteConfig.socials.email}
                 aria-label="Email"
-                className="p-2.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs"
+                className="p-2.5 rounded-lg border border-stone-200 dark:border-white/10 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40 transition-colors shadow-xs"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -137,17 +137,17 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 dark:text-neutral-400 text-xs">
+          <p className="text-stone-500 dark:text-stone-400 text-xs">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
 
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-white/10 hover:border-amber-500/40 bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-all text-xs cursor-pointer shadow-xs"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
           </button>
         </div>
 

@@ -121,7 +121,7 @@ export default function WorkGalleryPage() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2.5 rounded-xl bg-[var(--accent)]/10 hover:bg-[var(--accent)] text-[var(--accent)] hover:text-white border border-[var(--accent)]/30 transition-all"
+                          className="p-2.5 rounded-xl bg-[var(--accent)]/10 hover:bg-[var(--accent)] text-[var(--accent)] hover:text-stone-950 border border-[var(--accent)]/30 transition-all font-bold"
                           aria-label={`Launch ${project.title}`}
                         >
                           <ExternalLink className="w-4 h-4" />

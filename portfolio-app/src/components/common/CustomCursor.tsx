@@ -93,7 +93,7 @@ export default function CustomCursor() {
       {/* Small precision center dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-blue-600 dark:bg-blue-400 transition-transform duration-75 ease-out shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-amber-500 dark:bg-amber-400 transition-transform duration-75 ease-out shadow-[0_0_8px_rgba(245,158,11,0.7)]"
       />
 
       {/* Smooth trailing outer ring */}
@@ -102,9 +102,9 @@ export default function CustomCursor() {
         className={`fixed top-0 left-0 flex items-center justify-center rounded-full transition-all duration-200 ease-out border ${
           isHovered
             ? cursorText
-              ? "w-16 h-16 -ml-8 -mt-8 bg-blue-500/20 border-blue-500 backdrop-blur-sm shadow-md shadow-blue-500/20"
-              : "w-12 h-12 -ml-6 -mt-6 bg-blue-500/10 border-blue-500/50"
-            : "w-8 h-8 -ml-4 -mt-4 bg-transparent border-slate-400/40 dark:border-white/30"
+              ? "w-16 h-16 -ml-8 -mt-8 bg-amber-500/20 border-amber-500 backdrop-blur-sm shadow-md shadow-amber-500/25"
+              : "w-12 h-12 -ml-6 -mt-6 bg-amber-500/10 border-amber-500/50"
+            : "w-8 h-8 -ml-4 -mt-4 bg-transparent border-stone-400/40 dark:border-white/30"
         } ${isClicking ? "scale-75" : "scale-100"}`}
       >
         {cursorText && (

@@ -2,48 +2,47 @@
 
 import React, { useState } from "react";
 import { skillCategories, allSkillsList } from "@/data/skills";
-import { Layers, Terminal, Database, Wrench, Sparkles, Bot } from "lucide-react";
+import { Sparkles, Code, Cpu, Database, Wrench, Layers, Bot } from "lucide-react";
 import FloatingGeometry3D from "./3d/FloatingGeometry3D";
 import ParallaxWrapper from "./common/ParallaxWrapper";
 
-export default function TechStackSection() {
-  const [activeTab, setActiveTab] = useState<number>(0);
+const categoryIcons = [Bot, Code, Cpu, Database, Wrench];
 
-  const categoryIcons = [Bot, Layers, Terminal, Database, Wrench];
+export default function TechStackSection() {
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="tech-stack" className="py-24 relative bg-[var(--bg-primary)] border-t border-slate-200 dark:border-white/[0.06] overflow-hidden transition-colors duration-200">
-      {/* Background ambient radial glow */}
+    <section
+      id="skills"
+      className="py-24 relative bg-[var(--bg-primary)] border-t border-stone-200 dark:border-white/[0.06] w-full max-w-full overflow-hidden transition-colors duration-200"
+    >
+      {/* Background ambient glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-600/5 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Heading with 3D interactive icon */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between max-w-6xl mx-auto mb-14 gap-6">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-xs font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-3 font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Stack &amp; Tooling</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/10 text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-3 font-semibold">
+              <Sparkles className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+              <span>Technical Repertoire</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight font-display mb-4">
-              Technologies &amp; <br />
-              <span className="gradient-text-accent">Development Toolkit.</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-stone-900 dark:text-white tracking-tight font-display mb-4">
+              Modern Architecture, <br />
+              <span className="gradient-text-accent">Proven Technologies.</span>
             </h2>
-            <p className="text-slate-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base leading-relaxed">
               Curated tools and modern frameworks I utilize to engineer stable, fast, and scalable digital solutions.
             </p>
           </div>
 
           <div className="hidden md:flex flex-col items-center">
-            <FloatingGeometry3D shape="dodecahedron" size={140} glowColor="#3b82f6" wireframeColor="#6366f1" />
-            <span className="text-[10px] font-mono text-slate-400 dark:text-neutral-400 mt-1">Interactive 3D Dodecahedron</span>
+            <FloatingGeometry3D shape="dodecahedron" size={140} glowColor="#f59e0b" wireframeColor="#d97706" />
+            <span className="text-[10px] font-mono text-stone-400 dark:text-stone-400 mt-1">Interactive 3D Dodecahedron</span>
           </div>
         </div>
 
@@ -58,8 +57,8 @@ export default function TechStackSection() {
                 onClick={() => setActiveTab(idx)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-blue-600 text-white dark:bg-blue-500/20 dark:border dark:border-blue-500/50 dark:text-blue-400 shadow-md shadow-blue-500/15"
-                    : "bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/70 dark:hover:bg-white/[0.06]"
+                    ? "bg-amber-500 text-stone-950 font-bold shadow-md shadow-amber-500/20"
+                    : "bg-stone-100 dark:bg-white/[0.03] border border-stone-200 dark:border-white/10 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/70 dark:hover:bg-white/[0.06]"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -71,7 +70,7 @@ export default function TechStackSection() {
 
         {/* Active Category Description */}
         <div className="max-w-xl mx-auto text-center mb-8">
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-normal">
+          <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-normal">
             {skillCategories[activeTab].description}
           </p>
         </div>
@@ -82,17 +81,17 @@ export default function TechStackSection() {
             {skillCategories[activeTab].skills.map((skill, i) => (
               <div
                 key={i}
-                className="p-5 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#111422]/90 dark:to-[#070709]/95 backdrop-blur-xl hover:border-blue-500/40 shadow-sm dark:shadow-lg transition-all duration-300 group"
+                className="p-5 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#18181b]/90 dark:to-[#121215]/95 backdrop-blur-xl hover:border-amber-500/40 shadow-sm dark:shadow-lg transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-display">
+                  <span className="font-bold text-sm text-stone-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors font-display">
                     {skill.name}
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 dark:text-neutral-400 font-medium">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/10 text-stone-500 dark:text-stone-400 font-medium">
                     {skill.level}
                   </span>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed">
+                <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
                   {skill.description}
                 </p>
               </div>
@@ -101,15 +100,15 @@ export default function TechStackSection() {
         </ParallaxWrapper>
 
         {/* Complete Technology Badges Ribbon */}
-        <div className="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-white/10 bg-slate-50/80 dark:bg-[#0d101a]/70 backdrop-blur-xl max-w-5xl mx-auto text-center shadow-sm dark:shadow-xl">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 block mb-4 font-semibold">
+        <div className="p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-white/10 bg-stone-50/80 dark:bg-[#121216]/70 backdrop-blur-xl max-w-5xl mx-auto text-center shadow-sm dark:shadow-xl">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-4 font-semibold">
             MASTERED TECHNOLOGIES &amp; LIBRARIES
           </span>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {allSkillsList.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] hover:border-blue-500/40 hover:bg-blue-50 dark:hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-400 text-xs font-mono text-slate-700 dark:text-neutral-300 transition-all cursor-default shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg border border-stone-200 dark:border-white/10 bg-white dark:bg-white/[0.03] hover:border-amber-500/40 hover:bg-amber-50 dark:hover:bg-amber-500/10 hover:text-amber-600 dark:hover:text-amber-400 text-xs font-mono text-stone-700 dark:text-stone-300 transition-all cursor-default shadow-xs"
               >
                 {tech}
               </span>

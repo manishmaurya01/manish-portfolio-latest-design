@@ -33,34 +33,34 @@ export default function Hero3DScene() {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const lightCyan = new THREE.PointLight(0x3b82f6, 2.2, 50);
-    lightCyan.position.set(6, 6, 6);
-    scene.add(lightCyan);
+    const lightAmber = new THREE.PointLight(0xf59e0b, 2.4, 50);
+    lightAmber.position.set(6, 6, 6);
+    scene.add(lightAmber);
 
-    const lightViolet = new THREE.PointLight(0x6366f1, 1.8, 50);
-    lightViolet.position.set(-6, -6, 6);
-    scene.add(lightViolet);
+    const lightGold = new THREE.PointLight(0xd97706, 2.0, 50);
+    lightGold.position.set(-6, -6, 6);
+    scene.add(lightGold);
 
     // 4. Subtle Background Geometric Wireframe Halo (Positioned to the right behind portrait)
     const haloGeometry = new THREE.TorusGeometry(3.5, 0.4, 24, 80);
     const haloMaterial = new THREE.MeshBasicMaterial({
-      color: 0x3b82f6,
+      color: 0xf59e0b,
       wireframe: true,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.14,
     });
     const haloMesh = new THREE.Mesh(haloGeometry, haloMaterial);
     haloMesh.position.set(4, 0, -4);
     haloMesh.rotation.x = Math.PI / 4;
     scene.add(haloMesh);
 
-    // Inner subtle indigo ring
+    // Inner subtle gold ring
     const innerHaloGeo = new THREE.RingGeometry(2.6, 2.65, 64);
     const innerHaloMat = new THREE.MeshBasicMaterial({
-      color: 0x6366f1,
+      color: 0xd97706,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.2,
     });
     const innerHaloMesh = new THREE.Mesh(innerHaloGeo, innerHaloMat);
     innerHaloMesh.position.set(4, 0, -4);
@@ -73,8 +73,8 @@ export default function Hero3DScene() {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const c1 = new THREE.Color(0x3b82f6);
-    const c2 = new THREE.Color(0x6366f1);
+    const c1 = new THREE.Color(0xf59e0b);
+    const c2 = new THREE.Color(0xfbbf24);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
       positions[i] = (Math.random() - 0.5) * 26;

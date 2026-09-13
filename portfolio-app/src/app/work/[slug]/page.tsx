@@ -152,7 +152,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 transition-all active:scale-95"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-stone-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all active:scale-95"
                     >
                       <span>Launch Live Application</span>
                       <ExternalLink className="w-4 h-4" />
@@ -252,7 +252,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               
               {/* Interactive 3D Polyhedron Widget */}
               <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] backdrop-blur-xl text-center flex flex-col items-center">
-                <FloatingGeometry3D shape="dodecahedron" size={150} glowColor="#3b82f6" wireframeColor="#6366f1" />
+                <FloatingGeometry3D shape="dodecahedron" size={150} glowColor="#f59e0b" wireframeColor="#d97706" />
                 <span className="text-[11px] font-mono text-[var(--accent)] uppercase tracking-wider mt-2">
                   Interactive 3D Geometry
                 </span>
@@ -281,7 +281,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all active:scale-95"
+                  className="w-full py-3 px-4 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-stone-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all active:scale-95"
                 >
                   <span>Visit Live Demo</span>
                   <ExternalLink className="w-3.5 h-3.5" />

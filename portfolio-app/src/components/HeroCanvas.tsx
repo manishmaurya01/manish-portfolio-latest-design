@@ -36,7 +36,7 @@ export default function HeroCanvas() {
       alpha: number;
     }[] = [];
 
-    const colors = ["#3b82f6", "#6366f1", "#60a5fa", "#94a3b8"];
+    const colors = ["#f59e0b", "#d97706", "#fbbf24", "#d4d4d8"];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -89,9 +89,9 @@ export default function HeroCanvas() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 110) {
-            const lineAlpha = (1 - dist / 110) * 0.15;
+            const lineAlpha = (1 - dist / 110) * 0.18;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 240, 255, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(245, 158, 11, ${lineAlpha})`;
             ctx.lineWidth = 0.8;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);

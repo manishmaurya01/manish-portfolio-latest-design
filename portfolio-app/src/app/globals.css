@@ -1,54 +1,56 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
-    /* Dark Mode Defaults (Modern Executive Obsidian) */
-    --bg-primary: #090a0f;
-    --bg-secondary: #0e111a;
-    --bg-card: #121522;
-    --bg-card-subtle: rgba(18, 21, 34, 0.75);
+    /* Dark Mode Defaults (Warm Titanium & Amber Gold / Apple Pro & Linear Style) */
+    --bg-primary: #09090b;
+    --bg-secondary: #121215;
+    --bg-card: #18181b;
+    --bg-card-subtle: rgba(24, 24, 27, 0.78);
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.16);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --accent-glow: rgba(59, 130, 246, 0.15);
-    --accent-subtle: rgba(59, 130, 246, 0.12);
-    --accent-border: rgba(59, 130, 246, 0.3);
-    --badge-bg: rgba(255, 255, 255, 0.04);
-    --badge-border: rgba(255, 255, 255, 0.08);
-    --glow-1: rgba(59, 130, 246, 0.08);
-    --glow-2: rgba(99, 102, 241, 0.06);
-    --nav-bg: rgba(9, 10, 15, 0.82);
+    --border-strong: rgba(245, 158, 11, 0.3);
+    --text-primary: #fcfcfd;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent: #f59e0b;
+    --accent-hover: #fbbf24;
+    --accent-glow: rgba(245, 158, 11, 0.18);
+    --accent-subtle: rgba(245, 158, 11, 0.12);
+    --accent-border: rgba(245, 158, 11, 0.35);
+    --badge-bg: rgba(245, 158, 11, 0.08);
+    --badge-border: rgba(245, 158, 11, 0.2);
+    --glow-1: rgba(245, 158, 11, 0.09);
+    --glow-2: rgba(217, 119, 6, 0.06);
+    --nav-bg: rgba(9, 9, 11, 0.85);
     --nav-border: rgba(255, 255, 255, 0.08);
-    --card-hover-border: rgba(59, 130, 246, 0.4);
+    --card-hover-border: rgba(245, 158, 11, 0.45);
   }
 
   html.light {
-    /* Light Mode (Crisp Minimalist Paper & Slate) */
-    --bg-primary: #f8fafc;
+    /* Light Mode (Warm Ivory Stone & Burnished Amber Gold) */
+    --bg-primary: #fafaf9;
     --bg-secondary: #ffffff;
     --bg-card: #ffffff;
-    --bg-card-subtle: rgba(255, 255, 255, 0.88);
-    --border-subtle: #e2e8f0;
-    --border-strong: #cbd5e1;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --accent-glow: rgba(37, 99, 235, 0.12);
-    --accent-subtle: rgba(37, 99, 235, 0.08);
-    --accent-border: rgba(37, 99, 235, 0.25);
-    --badge-bg: #f1f5f9;
-    --badge-border: #e2e8f0;
-    --glow-1: rgba(37, 99, 235, 0.05);
-    --glow-2: rgba(79, 70, 229, 0.04);
-    --nav-bg: rgba(248, 250, 252, 0.88);
-    --nav-border: rgba(226, 232, 240, 0.85);
-    --card-hover-border: rgba(37, 99, 235, 0.4);
+    --bg-card-subtle: rgba(255, 255, 255, 0.92);
+    --border-subtle: #e7e5e4;
+    --border-strong: #d6d3d1;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --text-muted: #78716c;
+    --accent: #d97706;
+    --accent-hover: #b45309;
+    --accent-glow: rgba(217, 119, 6, 0.14);
+    --accent-subtle: rgba(217, 119, 6, 0.08);
+    --accent-border: rgba(217, 119, 6, 0.28);
+    --badge-bg: #f5f5f4;
+    --badge-border: #e7e5e4;
+    --glow-1: rgba(217, 119, 6, 0.05);
+    --glow-2: rgba(180, 83, 9, 0.03);
+    --nav-bg: rgba(250, 250, 249, 0.88);
+    --nav-border: rgba(231, 229, 228, 0.85);
+    --card-hover-border: rgba(217, 119, 6, 0.45);
   }
 
   html {
@@ -93,7 +95,11 @@
   }
 
   ::selection {
-    background: var(--accent);
+    background: #f59e0b;
+    color: #09090b;
+  }
+  html.light ::selection {
+    background: #d97706;
     color: #ffffff;
   }
 
@@ -159,23 +165,23 @@
 
 /* Executive Typography Gradients */
 .gradient-text-primary {
-  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #d4d4d8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 html.light .gradient-text-primary {
-  background: linear-gradient(180deg, #0f172a 0%, #334155 100%);
+  background: linear-gradient(180deg, #1c1917 0%, #44403c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-accent {
-  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 html.light .gradient-text-accent {
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -184,14 +190,14 @@ html.light .gradient-text-accent {
 .gradient-text-cyan,
 .gradient-text-violet,
 .gradient-text-glow {
-  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 html.light .gradient-text-cyan,
 html.light .gradient-text-violet,
 html.light .gradient-text-glow {
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
