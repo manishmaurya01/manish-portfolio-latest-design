@@ -81,7 +81,7 @@ export default function AboutPage() {
                   {/* Photo Container */}
                   <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 mb-6 shadow-inner">
                     <Image
-                      src="/assets/about.jpg"
+                      src="/assets/manish_about_new.jpg"
                       alt="Manish Kumar portrait"
                       fill
                       priority

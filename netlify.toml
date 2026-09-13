@@ -7,6 +7,8 @@
 [build.environment]
   NODE_VERSION = "20"
   NETLIFY_DISABLE_DRAWER = "true"
+  DRAWER_DISABLE = "true"
+  NETLIFY_DRAWER = "false"
 
 # Optional security and caching headers
 [[headers]]
@@ -16,6 +18,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    X-NF-Disable-Drawer = "1"
 
 [[headers]]
   for = "/_next/static/*"
@@ -25,4 +28,5 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
+

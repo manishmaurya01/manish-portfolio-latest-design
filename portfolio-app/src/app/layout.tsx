@@ -84,6 +84,49 @@ export default function RootLayout({
       lang="en"
       className={`${sansFont.variable} ${displayFont.variable} ${monoFont.variable} dark`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function purgeNetlify() {
+                  var targets = [
+                    'netlify-drawer',
+                    '#netlify-drawer',
+                    '.netlify-drawer',
+                    '[data-netlify-drawer]',
+                    '[data-netlify-badge]',
+                    'iframe[src*="netlify"]',
+                    'iframe[id*="netlify"]',
+                    'div[id*="netlify-feedback"]',
+                    'div[class*="netlify-feedback"]',
+                    'div[id*="netlify-drawer"]'
+                  ];
+                  for (var i = 0; i < targets.length; i++) {
+                    try {
+                      var els = document.querySelectorAll(targets[i]);
+                      for (var j = 0; j < els.length; j++) {
+                        els[j].remove();
+                      }
+                    } catch(e) {}
+                  }
+                }
+                if (typeof window !== 'undefined') {
+                  purgeNetlify();
+                  window.addEventListener('DOMContentLoaded', purgeNetlify);
+                  window.addEventListener('load', purgeNetlify);
+                  if (typeof MutationObserver !== 'undefined') {
+                    new MutationObserver(purgeNetlify).observe(document.documentElement, {
+                      childList: true,
+                      subtree: true
+                    });
+                  }
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-[#070709] text-[#f4f4f7] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#070709] flex flex-col relative">
         <ScrollProgressBar />
         <CustomCursor />

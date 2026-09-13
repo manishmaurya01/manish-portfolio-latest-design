@@ -114,7 +114,7 @@ export default function AboutSection() {
               {/* Foreground Image Card */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-neutral-900 group">
                 <Image
-                  src="/assets/about.jpg"
+                  src="/assets/manish_about_new.jpg"
                   alt="Manish Kumar portrait"
                   fill
                   sizes="(max-width: 768px) 288px, 320px"
