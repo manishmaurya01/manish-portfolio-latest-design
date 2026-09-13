@@ -66,7 +66,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#070709] border-t border-white/[0.06]">
+    <section id="contact" className="py-24 relative bg-[#070709] border-t border-white/[0.06] w-full max-w-full overflow-hidden">
       {/* Background glow */}
       <div
         className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#00f0ff]/5 rounded-full blur-3xl pointer-events-none"

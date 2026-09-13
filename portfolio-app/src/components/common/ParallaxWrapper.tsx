@@ -23,6 +23,15 @@ export default function ParallaxWrapper({
   useEffect(() => {
     if (!mouseParallax) return;
 
+    // Disable on touch devices or screens < 768px to prevent horizontal layout overflow
+    if (
+      typeof window === "undefined" ||
+      window.innerWidth < 768 ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
+      return;
+    }
+
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;

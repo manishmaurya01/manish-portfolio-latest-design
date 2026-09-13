@@ -73,7 +73,7 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 relative bg-[#070709] border-t border-white/[0.06]">
+    <section id="about" className="py-24 relative bg-[#070709] border-t border-white/[0.06] w-full max-w-full overflow-hidden">
       {/* Ambient background glow */}
       <div
         className="absolute top-1/2 left-0 w-96 h-96 bg-[#8b5cf6]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"

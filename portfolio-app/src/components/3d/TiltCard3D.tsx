@@ -22,6 +22,11 @@ export default function TiltCard3D({
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50, opacity: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Disable on mobile/touch screens
+    if (typeof window !== "undefined" && (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)) {
+      return;
+    }
+
     const card = cardRef.current;
     if (!card) return;
 

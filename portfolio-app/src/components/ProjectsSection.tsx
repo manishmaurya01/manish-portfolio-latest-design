@@ -9,7 +9,7 @@ import TiltCard3D from "./3d/TiltCard3D";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 relative bg-[#070709] border-t border-white/[0.06]">
+    <section id="projects" className="py-24 relative bg-[#070709] border-t border-white/[0.06] w-full max-w-full overflow-hidden">
       {/* Background radial accent */}
       <div
         className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00f0ff]/5 rounded-full blur-3xl pointer-events-none"

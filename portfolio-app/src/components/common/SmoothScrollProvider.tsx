@@ -19,8 +19,18 @@ export default function SmoothScrollProvider({
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Only enable on desktop or when window exists
+    // Only enable on desktop with mouse pointer — let mobile devices use native momentum scroll
     if (typeof window === "undefined") return;
+
+    const isTouchDevice =
+      window.matchMedia("(pointer: coarse)").matches ||
+      "ontouchstart" in window ||
+      window.innerWidth < 1024;
+
+    if (isTouchDevice) {
+      // Do NOT initialize Lenis on touch devices to avoid gesture fighting & horizontal overflow
+      return;
+    }
 
     const lenis = new Lenis({
       duration: 1.2,
@@ -29,7 +39,7 @@ export default function SmoothScrollProvider({
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      touchMultiplier: 0,
     });
 
     lenisRef.current = lenis;

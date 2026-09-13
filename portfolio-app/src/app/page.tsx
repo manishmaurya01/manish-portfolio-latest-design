@@ -13,12 +13,12 @@ import KineticMarquee from "@/components/common/KineticMarquee";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-[#070709] text-[#f4f4f7] selection:bg-[#00f0ff] selection:text-[#070709]">
+    <div className="relative min-h-screen bg-[#070709] text-[#f4f4f7] selection:bg-[#00f0ff] selection:text-[#070709] w-full max-w-full overflow-x-hidden">
       {/* Top Navbar */}
       <Navbar />
 
       {/* Main Content Sections */}
-      <main id="main-content" className="relative flex flex-col">
+      <main id="main-content" className="relative flex flex-col w-full max-w-full overflow-x-hidden">
         {/* 1. Hero Section with Interactive 3D WebGL Torus Knot */}
         <HeroSection />
 
