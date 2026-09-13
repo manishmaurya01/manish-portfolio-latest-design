@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function Hero3DScene() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -14,12 +13,12 @@ export default function Hero3DScene() {
     let width = container.clientWidth;
     let height = container.clientHeight;
 
-    // 1. Scene & Camera Setup
+    // 1. Scene & Camera
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 10;
+    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+    camera.position.z = 12;
 
-    // 2. WebGL Renderer
+    // 2. Renderer
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
@@ -27,188 +26,96 @@ export default function Hero3DScene() {
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // 3. Lighting
+    // 3. Ambient & Point Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const pointLightCyan = new THREE.PointLight(0x00f0ff, 3, 50);
-    pointLightCyan.position.set(5, 5, 5);
-    scene.add(pointLightCyan);
+    const lightCyan = new THREE.PointLight(0x00f0ff, 3, 50);
+    lightCyan.position.set(6, 6, 6);
+    scene.add(lightCyan);
 
-    const pointLightViolet = new THREE.PointLight(0x8b5cf6, 3, 50);
-    pointLightViolet.position.set(-5, -5, 5);
-    scene.add(pointLightViolet);
+    const lightViolet = new THREE.PointLight(0x8b5cf6, 2.5, 50);
+    lightViolet.position.set(-6, -6, 6);
+    scene.add(lightViolet);
 
-    // 4. Main 3D Sculpture: Holographic Torus Knot
-    const torusKnotGeometry = new THREE.TorusKnotGeometry(2.0, 0.55, 120, 24, 2, 3);
-    
-    // Wireframe Outer Mesh
-    const wireframeMaterial = new THREE.MeshBasicMaterial({
+    // 4. Subtle Background Geometric Wireframe Halo (Positioned to the right behind portrait)
+    const haloGeometry = new THREE.TorusGeometry(3.5, 0.4, 24, 80);
+    const haloMaterial = new THREE.MeshBasicMaterial({
       color: 0x00f0ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.35,
+      opacity: 0.15,
     });
-    const torusWireframe = new THREE.Mesh(torusKnotGeometry, wireframeMaterial);
-    scene.add(torusWireframe);
+    const haloMesh = new THREE.Mesh(haloGeometry, haloMaterial);
+    haloMesh.position.set(4, 0, -4);
+    haloMesh.rotation.x = Math.PI / 4;
+    scene.add(haloMesh);
 
-    // Inner Glowing Core Mesh
-    const innerMaterial = new THREE.MeshStandardMaterial({
-      color: 0x080c18,
-      emissive: 0x1a0f3d,
-      roughness: 0.2,
-      metalness: 0.9,
+    // Inner subtle violet ring
+    const innerHaloGeo = new THREE.RingGeometry(2.6, 2.65, 64);
+    const innerHaloMat = new THREE.MeshBasicMaterial({
+      color: 0x8b5cf6,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.25,
     });
-    const torusInner = new THREE.Mesh(torusKnotGeometry, innerMaterial);
-    torusInner.scale.set(0.97, 0.97, 0.97);
-    scene.add(torusInner);
+    const innerHaloMesh = new THREE.Mesh(innerHaloGeo, innerHaloMat);
+    innerHaloMesh.position.set(4, 0, -4);
+    innerHaloMesh.rotation.x = Math.PI / 4;
+    scene.add(innerHaloMesh);
 
-    // 5. Surrounding 3D Particle Cloud
-    const particleCount = 200;
+    // 5. Star / Light Dust Particle Cloud
+    const particleCount = 220;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const color1 = new THREE.Color(0x00f0ff);
-    const color2 = new THREE.Color(0x8b5cf6);
+    const c1 = new THREE.Color(0x00f0ff);
+    const c2 = new THREE.Color(0x8b5cf6);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      // Spherical distribution around center
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const r = 3.5 + Math.random() * 2.5;
-      const sinPhi = Math.sin(phi);
+      positions[i] = (Math.random() - 0.5) * 26;
+      positions[i + 1] = (Math.random() - 0.5) * 18;
+      positions[i + 2] = (Math.random() - 0.5) * 12;
 
-      positions[i] = r * sinPhi * Math.cos(theta);
-      positions[i + 1] = r * sinPhi * Math.sin(theta);
-      positions[i + 2] = r * Math.cos(phi);
-
-      // Interpolate cyan and violet
-      const mixedColor = color1.clone().lerp(color2, Math.random());
-      colors[i] = mixedColor.r;
-      colors[i + 1] = mixedColor.g;
-      colors[i + 2] = mixedColor.b;
+      const mixed = c1.clone().lerp(c2, Math.random());
+      colors[i] = mixed.r;
+      colors[i + 1] = mixed.g;
+      colors[i + 2] = mixed.b;
     }
 
     particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     particleGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      size: 0.08,
+      size: 0.06,
       vertexColors: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.65,
       blending: THREE.AdditiveBlending,
     });
     const particleCloud = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particleCloud);
 
-    // 6. Floating Polyhedron Geometries in Depth
-    const floatingGroup = new THREE.Group();
-    const shapes: THREE.Mesh[] = [];
-
-    const geomOcta = new THREE.OctahedronGeometry(0.5, 0);
-    const geomIcosa = new THREE.IcosahedronGeometry(0.4, 0);
-    const geomTetra = new THREE.TetrahedronGeometry(0.45, 0);
-
-    const polyMaterial = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.25,
-    });
-
-    for (let i = 0; i < 6; i++) {
-      const g = i % 3 === 0 ? geomOcta : i % 3 === 1 ? geomIcosa : geomTetra;
-      const mesh = new THREE.Mesh(g, polyMaterial);
-      mesh.position.set(
-        (Math.random() - 0.5) * 12,
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 6 - 2
-      );
-      floatingGroup.add(mesh);
-      shapes.push(mesh);
-    }
-    scene.add(floatingGroup);
-
-    // 7. Mouse & Touch Interaction Mechanics
-    let targetRotationX = 0;
-    let targetRotationY = 0;
-    let currentRotationX = 0;
-    let currentRotationY = 0;
-
-    let isDragging = false;
-    let previousPointerX = 0;
-    let previousPointerY = 0;
+    // 6. Mouse Interaction
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
 
     const onPointerMove = (e: MouseEvent) => {
-      if (!isDragging) {
-        // Subtle tracking of mouse
-        const normX = (e.clientX / window.innerWidth) * 2 - 1;
-        const normY = -(e.clientY / window.innerHeight) * 2 + 1;
-        targetRotationY = normX * 0.8;
-        targetRotationX = -normY * 0.6;
-      } else {
-        const deltaX = e.clientX - previousPointerX;
-        const deltaY = e.clientY - previousPointerY;
-        targetRotationY += deltaX * 0.01;
-        targetRotationX += deltaY * 0.01;
-        previousPointerX = e.clientX;
-        previousPointerY = e.clientY;
-      }
-    };
-
-    const onPointerDown = (e: MouseEvent) => {
-      isDragging = true;
-      setIsInteracting(true);
-      previousPointerX = e.clientX;
-      previousPointerY = e.clientY;
-    };
-
-    const onPointerUp = () => {
-      isDragging = false;
-      setIsInteracting(false);
-    };
-
-    // Touch support for mobile
-    const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0 && isDragging) {
-        const touch = e.touches[0];
-        const deltaX = touch.clientX - previousPointerX;
-        const deltaY = touch.clientY - previousPointerY;
-        targetRotationY += deltaX * 0.015;
-        targetRotationX += deltaY * 0.015;
-        previousPointerX = touch.clientX;
-        previousPointerY = touch.clientY;
-      }
-    };
-
-    const onTouchStart = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        isDragging = true;
-        setIsInteracting(true);
-        previousPointerX = e.touches[0].clientX;
-        previousPointerY = e.touches[0].clientY;
-      }
-    };
-
-    const onTouchEnd = () => {
-      isDragging = false;
-      setIsInteracting(false);
+      const normX = (e.clientX / window.innerWidth) * 2 - 1;
+      const normY = -(e.clientY / window.innerHeight) * 2 + 1;
+      targetX = normX * 0.8;
+      targetY = normY * 0.5;
     };
 
     window.addEventListener("mousemove", onPointerMove, { passive: true });
-    window.addEventListener("mousedown", onPointerDown);
-    window.addEventListener("mouseup", onPointerUp);
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchend", onTouchEnd);
 
-    // 8. Responsive Resize
+    // 7. Resize Observer
     const handleResize = () => {
       if (!container) return;
       width = container.clientWidth;
@@ -219,65 +126,58 @@ export default function Hero3DScene() {
     };
     window.addEventListener("resize", handleResize);
 
-    // 9. Animation Loop
-    let animationFrameId: number;
-    let clock = new THREE.Clock();
+    // 8. Animation Loop
+    let animId: number;
+    let clock = 0;
+    let isVisible = true;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    observer.observe(container);
 
     const animate = () => {
-      const delta = clock.getDelta();
-      const elapsedTime = clock.getElapsedTime();
+      animId = requestAnimationFrame(animate);
+      if (!isVisible) return;
 
-      // Smooth lerp orientation towards target
-      currentRotationX += (targetRotationX - currentRotationX) * 0.05;
-      currentRotationY += (targetRotationY - currentRotationY) * 0.05;
+      clock += 0.006;
 
-      // Base self-rotation
-      torusWireframe.rotation.x = currentRotationX + elapsedTime * 0.2;
-      torusWireframe.rotation.y = currentRotationY + elapsedTime * 0.25;
-      torusInner.rotation.x = torusWireframe.rotation.x;
-      torusInner.rotation.y = torusWireframe.rotation.y;
+      // Smooth camera parallax
+      currentX += (targetX - currentX) * 0.04;
+      currentY += (targetY - currentY) * 0.04;
 
-      // Rotate particle cloud gently in opposite direction
-      particleCloud.rotation.y = -elapsedTime * 0.1;
-      particleCloud.rotation.z = elapsedTime * 0.05;
+      camera.position.x = currentX;
+      camera.position.y = currentY;
+      camera.lookAt(0, 0, 0);
 
-      // Float and rotate background shapes
-      shapes.forEach((s, idx) => {
-        s.rotation.x += 0.01 * (idx + 1) * 0.5;
-        s.rotation.y += 0.015 * (idx + 1) * 0.5;
-        s.position.y += Math.sin(elapsedTime + idx) * 0.002;
-      });
+      // Rotate geometric halo gently in background
+      haloMesh.rotation.z = clock * 0.4;
+      haloMesh.rotation.y = clock * 0.2;
+      innerHaloMesh.rotation.z = -clock * 0.3;
+
+      // Rotate particle cloud gently
+      particleCloud.rotation.y = clock * 0.15;
+      particleCloud.rotation.x = clock * 0.08;
 
       renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
 
-    // 10. Clean Cleanup
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animId);
       window.removeEventListener("mousemove", onPointerMove);
-      window.removeEventListener("mousedown", onPointerDown);
-      window.removeEventListener("mouseup", onPointerUp);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("resize", handleResize);
+      observer.disconnect();
 
-      // Dispose Three.js objects
-      torusKnotGeometry.dispose();
-      wireframeMaterial.dispose();
-      innerMaterial.dispose();
+      haloGeometry.dispose();
+      haloMaterial.dispose();
+      innerHaloGeo.dispose();
+      innerHaloMat.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
-      geomOcta.dispose();
-      geomIcosa.dispose();
-      geomTetra.dispose();
-      polyMaterial.dispose();
       renderer.dispose();
-
-      if (container && renderer.domElement) {
+      if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
     };
@@ -286,17 +186,8 @@ export default function Hero3DScene() {
   return (
     <div
       ref={containerRef}
-      data-cursor="DRAG 3D"
-      className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing z-0 pointer-events-auto select-none"
-      title="Click and drag to spin 3D sculpture"
-      aria-label="Interactive 3D WebGL Torus Sculpture"
-    >
-      {/* 3D Hint Badge */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 z-10 pointer-events-none opacity-40 hover:opacity-100 transition-opacity">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-[#00f0ff] px-3 py-1 rounded-full border border-cyan-500/20 bg-[#070709]/80 backdrop-blur-md">
-          {isInteracting ? "Rotating 3D Space" : "Drag to Rotate 3D Sculpture"}
-        </span>
-      </div>
-    </div>
+      className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+      aria-hidden="true"
+    />
   );
 }

@@ -2,10 +2,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, Project } from "@/data/projects";
-import { ArrowLeft, ExternalLink, CheckCircle2, Layers, Calendar, User, Code2, ArrowRight } from "lucide-react";
+import { projects } from "@/data/projects";
+import { ArrowLeft, ExternalLink, CheckCircle2, ArrowRight, Sparkles, Layers, ShieldCheck, Terminal } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AmbientBackground3D from "@/components/3d/AmbientBackground3D";
+import TiltCard3D from "@/components/3d/TiltCard3D";
+import FloatingGeometry3D from "@/components/3d/FloatingGeometry3D";
+import ParallaxWrapper from "@/components/common/ParallaxWrapper";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -46,17 +50,34 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <div className="min-h-screen bg-[#070709] text-[#f4f4f7] flex flex-col">
+    <div className="relative min-h-screen bg-[#070709] text-[#f4f4f7] flex flex-col overflow-hidden">
+      {/* Interactive 3D WebGL Ambient Background */}
+      <AmbientBackground3D particleCount={160} wireframeMesh="octahedron" />
+
+      {/* Ambient background glow orbs - matching home page aesthetic */}
+      <div
+        className="absolute top-24 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-[#00f0ff]/10 via-[#8b5cf6]/10 to-transparent rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/2 right-10 w-[450px] h-[450px] bg-[#8b5cf6]/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-[#00f0ff]/8 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+
       <Navbar />
 
-      <main className="flex-1 pt-32 pb-24">
+      <main className="relative z-10 flex-1 pt-32 pb-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb / Back button */}
           <div className="mb-8">
             <Link
               href="/#projects"
-              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-[#00f0ff] transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-[#00f0ff] transition-colors p-2 -ml-2 rounded-lg hover:bg-white/5"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to all projects</span>
@@ -66,74 +87,96 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           {/* Header Metadata */}
           <div className="mb-12">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#00f0ff] px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/10">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#00f0ff] px-3.5 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/10 backdrop-blur-md">
                 {project.category}
               </span>
-              <span className="text-xs font-mono text-neutral-400">
+              <span className="text-xs font-mono text-neutral-400 px-3 py-1 rounded-full border border-white/10 bg-white/5">
                 Year: {project.year}
+              </span>
+              <span className="text-xs font-mono text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Production Ready</span>
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4 font-display">
               {project.title}
             </h1>
-            <p className="text-lg sm:text-xl text-neutral-300 font-light max-w-3xl mb-8">
+            <p className="text-lg sm:text-xl text-neutral-300 font-light max-w-3xl mb-8 leading-relaxed">
               {project.subtitle}
             </p>
 
             {/* Quick stats pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.02]">
-              <div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl border border-white/10 bg-[#0d101a]/80 backdrop-blur-xl shadow-xl">
+              <div className="p-2">
                 <span className="text-[11px] font-mono text-neutral-400 block uppercase">Role</span>
-                <span className="text-xs font-medium text-white">{project.role}</span>
+                <span className="text-xs font-semibold text-white">{project.role}</span>
               </div>
-              <div>
+              <div className="p-2">
                 <span className="text-[11px] font-mono text-neutral-400 block uppercase">Timeline</span>
-                <span className="text-xs font-medium text-white">{project.year}</span>
+                <span className="text-xs font-semibold text-white">{project.year}</span>
               </div>
-              <div>
+              <div className="p-2">
                 <span className="text-[11px] font-mono text-neutral-400 block uppercase">Deployment</span>
-                <span className="text-xs font-medium text-cyan-400">{project.highlights[0]?.value || "Live"}</span>
+                <span className="text-xs font-semibold text-cyan-400">{project.highlights[0]?.value || "Live"}</span>
               </div>
-              <div>
+              <div className="p-2">
                 <span className="text-[11px] font-mono text-neutral-400 block uppercase">Status</span>
-                <span className="text-xs font-medium text-emerald-400">Active / Production</span>
+                <span className="text-xs font-semibold text-emerald-400">Active / Online</span>
               </div>
             </div>
           </div>
 
-          {/* Main Hero Showcase Media */}
-          <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl mb-12">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority
-              sizes="(max-width: 1200px) 100vw, 1024px"
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070709]/80 via-transparent to-transparent flex items-end p-6 sm:p-8">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] font-bold text-xs shadow-lg shadow-[#00f0ff]/20 transition-all active:scale-95"
-              >
-                <span>Launch Live Application</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+          {/* Main Hero Showcase Media with 3D Tilt & Cyber Frame */}
+          <div className="mb-14">
+            <TiltCard3D maxTilt={6} className="w-full">
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-gradient-to-b from-[#131726]/90 to-[#070709]/95 backdrop-blur-2xl shadow-2xl group">
+                
+                {/* Cyber HUD Corner Brackets */}
+                <div className="absolute top-4 left-4 z-20 w-4 h-4 border-t-2 border-l-2 border-[#00f0ff]/80 pointer-events-none" />
+                <div className="absolute top-4 right-4 z-20 w-4 h-4 border-t-2 border-r-2 border-[#00f0ff]/80 pointer-events-none" />
+                <div className="absolute bottom-4 left-4 z-20 w-4 h-4 border-b-2 border-l-2 border-[#8b5cf6]/80 pointer-events-none" />
+                <div className="absolute bottom-4 right-4 z-20 w-4 h-4 border-b-2 border-r-2 border-[#8b5cf6]/80 pointer-events-none" />
+
+                <div className="relative aspect-video w-full overflow-hidden bg-black/60">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1200px) 100vw, 1024px"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent flex items-end p-6 sm:p-8">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] font-bold text-xs sm:text-sm shadow-lg shadow-[#00f0ff]/25 transition-all active:scale-95"
+                    >
+                      <span>Launch Live Application</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </TiltCard3D>
           </div>
 
           {/* Deep Dive Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
             
-            {/* Left: Problem, Solution, Features */}
-            <div className="lg:col-span-8 space-y-10">
+            {/* Left Column: Problem, Solution, Features */}
+            <div className="lg:col-span-8 space-y-8">
               
               {/* Executive Summary */}
-              <div>
-                <h2 className="text-xl font-bold text-white mb-3 font-display">
+              <div className="p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0d101a]/70 backdrop-blur-xl">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#00f0ff] mb-3">
+                  <Sparkles className="w-4 h-4 text-[#00f0ff]" />
+                  <span>PROJECT ARCHITECTURE</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 font-display">
                   Project Overview
                 </h2>
                 <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
@@ -141,24 +184,29 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                 </p>
               </div>
 
-              {/* Problem */}
-              <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-                <h3 className="text-base font-bold text-white mb-2 font-display text-red-400 flex items-center gap-2">
-                  <span>The Challenge</span>
-                </h3>
-                <p className="text-neutral-300 text-sm leading-relaxed">
-                  {project.problem}
-                </p>
-              </div>
+              {/* Challenge & Solution Cards with Parallax Depth */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ParallaxWrapper speed={6} maxMouseOffset={6}>
+                  <div className="h-full p-6 rounded-2xl border border-red-500/20 bg-red-950/10 backdrop-blur-md">
+                    <h3 className="text-sm font-bold font-display text-red-400 flex items-center gap-2 mb-2 font-mono uppercase tracking-wider">
+                      <span>The Challenge</span>
+                    </h3>
+                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                      {project.problem}
+                    </p>
+                  </div>
+                </ParallaxWrapper>
 
-              {/* Solution */}
-              <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-                <h3 className="text-base font-bold text-white mb-2 font-display text-emerald-400 flex items-center gap-2">
-                  <span>The Solution</span>
-                </h3>
-                <p className="text-neutral-300 text-sm leading-relaxed">
-                  {project.solution}
-                </p>
+                <ParallaxWrapper speed={-6} maxMouseOffset={6}>
+                  <div className="h-full p-6 rounded-2xl border border-emerald-500/20 bg-emerald-950/10 backdrop-blur-md">
+                    <h3 className="text-sm font-bold font-display text-emerald-400 flex items-center gap-2 mb-2 font-mono uppercase tracking-wider">
+                      <span>The Solution</span>
+                    </h3>
+                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                      {project.solution}
+                    </p>
+                  </div>
+                </ParallaxWrapper>
               </div>
 
               {/* Secondary Image Showcase if exists */}
@@ -173,14 +221,14 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                       alt={`${project.title} secondary interface`}
                       fill
                       sizes="(max-width: 1200px) 100vw, 800px"
-                      className="object-cover object-top"
+                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </div>
               )}
 
               {/* Core Features */}
-              <div>
+              <div className="p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0d101a]/70 backdrop-blur-xl">
                 <h2 className="text-xl font-bold text-white mb-4 font-display">
                   Key Capabilities &amp; Implementation Details
                 </h2>
@@ -188,7 +236,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   {project.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 p-3.5 rounded-xl border border-white/5 bg-white/[0.02]"
+                      className="flex items-start gap-3 p-3.5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[#00f0ff]/30 transition-colors"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#00f0ff] shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm text-neutral-300 leading-relaxed">{feature}</span>
@@ -199,11 +247,22 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
 
             </div>
 
-            {/* Right: Tech Specifications & Live Link */}
+            {/* Right Column: Tech Specifications & Live Link & 3D Element */}
             <div className="lg:col-span-4 space-y-6">
               
+              {/* Interactive 3D Polyhedron Widget */}
+              <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-[#121626]/90 to-[#0c0f1a]/95 backdrop-blur-xl text-center flex flex-col items-center">
+                <FloatingGeometry3D shape="dodecahedron" size={150} glowColor="#00f0ff" wireframeColor="#8b5cf6" />
+                <span className="text-[11px] font-mono text-[#00f0ff] uppercase tracking-wider mt-2">
+                  Interactive 3D Geometry
+                </span>
+                <p className="text-[10px] text-neutral-400 mt-1">
+                  Drag with cursor to rotate &amp; examine
+                </p>
+              </div>
+
               {/* Tech Stack Card */}
-              <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent">
+              <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-[#121626]/90 to-[#0c0f1a]/95 backdrop-blur-xl">
                 <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-4">
                   Tech Stack Applied
                 </span>
@@ -222,7 +281,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] font-bold text-xs flex items-center justify-center gap-2 shadow transition-all"
+                  className="w-full py-3 px-4 rounded-xl bg-[#00f0ff] hover:bg-[#38f8ff] text-[#070709] font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-[#00f0ff]/20 transition-all active:scale-95"
                 >
                   <span>Visit Live Demo</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -230,7 +289,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               </div>
 
               {/* Highlight Metrics */}
-              <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent space-y-4">
+              <div className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-[#121626]/90 to-[#0c0f1a]/95 backdrop-blur-xl space-y-4">
                 <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-2">
                   System Metadata
                 </span>
@@ -247,10 +306,10 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
           </div>
 
           {/* Next Project Footer Bar */}
-          <div className="pt-12 border-t border-white/10 flex items-center justify-between">
+          <div className="pt-10 border-t border-white/10 flex items-center justify-between">
             <Link
               href="/#projects"
-              className="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
+              className="text-xs font-mono text-neutral-400 hover:text-white transition-colors p-2 -ml-2 rounded-lg hover:bg-white/5"
             >
               ← All Projects
             </Link>
@@ -267,7 +326,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
                   {nextProject.title}
                 </span>
               </div>
-              <div className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center group-hover:border-[#00f0ff]/40 transition-colors">
+              <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center group-hover:border-[#00f0ff]/40 transition-colors">
                 <ArrowRight className="w-4 h-4 text-[#00f0ff]" />
               </div>
             </Link>
