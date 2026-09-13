@@ -197,3 +197,16 @@
 .animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
+
+/* Suppress Netlify collaborative drawer & injected badges */
+[data-netlify-drawer],
+#netlify-drawer,
+.netlify-drawer,
+[data-netlify-badge],
+iframe[src*="netlify"],
+div[class*="netlify-feedback"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}

@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import { skillCategories, allSkillsList } from "@/data/skills";
-import { Layers, Terminal, Database, Wrench, Sparkles } from "lucide-react";
+import { Layers, Terminal, Database, Wrench, Sparkles, Bot } from "lucide-react";
 import FloatingGeometry3D from "./3d/FloatingGeometry3D";
 import ParallaxWrapper from "./common/ParallaxWrapper";
 
 export default function TechStackSection() {
   const [activeTab, setActiveTab] = useState<number>(0);
 
-  const categoryIcons = [Layers, Terminal, Database, Wrench];
+  const categoryIcons = [Bot, Layers, Terminal, Database, Wrench];
 
   return (
     <section id="tech-stack" className="py-24 relative bg-[#070709] border-t border-white/[0.06] overflow-hidden">

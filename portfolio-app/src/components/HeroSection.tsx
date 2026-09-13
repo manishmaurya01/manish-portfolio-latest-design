@@ -94,12 +94,12 @@ export default function HeroSection() {
             {/* Quick Metrics Strip */}
             <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-8 pt-5 border-t border-white/10 w-full mb-6 text-center sm:text-left">
               <div>
-                <span className="block text-xl sm:text-3xl font-black text-white font-display">3+</span>
+                <span className="block text-xl sm:text-3xl font-black text-white font-display">7+</span>
                 <span className="text-[10px] sm:text-xs text-neutral-400 font-mono">Projects</span>
               </div>
               <div className="w-px h-8 bg-white/10 hidden sm:block" />
               <div>
-                <span className="block text-xl sm:text-3xl font-black text-cyan-400 font-display">12+</span>
+                <span className="block text-xl sm:text-3xl font-black text-cyan-400 font-display">14+</span>
                 <span className="text-[10px] sm:text-xs text-neutral-400 font-mono">Tech Stacks</span>
               </div>
               <div className="w-px h-8 bg-white/10 hidden sm:block" />

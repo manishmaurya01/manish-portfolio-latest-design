@@ -11,6 +11,16 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
+    category: "AI & Vibe Coding",
+    description: "Leveraging frontier AI models, AI-first IDEs, and vibe coding techniques to rapidly conceptualize, architect, and ship production-grade digital products from scratch.",
+    skills: [
+      { name: "Vibe Coding & Rapid Prototyping", level: "Expert", description: "Harnessing LLMs to build full-scale web apps, automated tools, and backend logic at 10x velocity" },
+      { name: "Cursor & Windsurf AI", level: "Advanced", description: "AI composer workflows, codebase indexing, multi-file edits, and automated refactoring" },
+      { name: "Frontier LLMs & Prompting", level: "Advanced", description: "Claude 3.5 Sonnet, GPT-4o, Gemini API integrations, structured outputs, prompt engineering" },
+      { name: "Autonomous AI Workflows", level: "Advanced", description: "Autonomous AI agents, automated testing, real-time intelligence feeds, and zero-interference systems" }
+    ]
+  },
+  {
     category: "Frontend Development",
     description: "Architecting responsive, high-performance interfaces with modern React, semantic structure, and reactive styling.",
     skills: [
@@ -51,6 +61,11 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const allSkillsList = [
+  "Vibe Coding",
+  "Cursor AI",
+  "Prompt Engineering",
+  "Claude 3.5 & GPT-4o",
+  "AI Orchestration",
   "React.js",
   "JavaScript",
   "HTML5",
@@ -65,6 +80,6 @@ export const allSkillsList = [
   "Firebase",
   "n8n Automation",
   "VS Code",
-  "Git",
+  "Git & GitHub",
   "REST APIs"
 ];

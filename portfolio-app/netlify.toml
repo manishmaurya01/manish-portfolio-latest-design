@@ -5,6 +5,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY_DISABLE_DRAWER = "true"
 
 # Optional security and caching headers
 [[headers]]

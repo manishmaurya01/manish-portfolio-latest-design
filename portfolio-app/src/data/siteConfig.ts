@@ -9,9 +9,9 @@ export const siteConfig = {
   email: "mauryamanish13678@gmail.com",
   availability: "Available for freelance projects & full-time roles",
   stats: [
-    { label: "Client Projects Delivered", value: "3+" },
+    { label: "Client Projects Delivered", value: "7+" },
     { label: "Years of Dedicated Craft", value: "2+" },
-    { label: "Modern Technologies Mastered", value: "12+" },
+    { label: "Modern Technologies Mastered", value: "14+" },
     { label: "Hackathon Track Record", value: "Parul 6.0" }
   ],
   socials: {

@@ -31,7 +31,7 @@ export default function ProjectsSection() {
             </h2>
           </div>
           <p className="max-w-md text-neutral-400 text-xs sm:text-sm leading-relaxed">
-            Every project represents a tailored solution designed for specific business needs, from enterprise human resources to fast consumer food ordering and institutional online examinations.
+            Every project represents a tailored solution designed for specific real-world needs, from autonomous AI learning engines to enterprise HR platforms, high-speed food ordering, and institutional examination systems.
           </p>
         </div>
 

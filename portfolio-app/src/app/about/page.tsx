@@ -106,11 +106,11 @@ export default function AboutPage() {
                   {/* Live Quick Metrics */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
-                      <span className="block text-xl font-bold text-white font-mono">3+</span>
+                      <span className="block text-xl font-bold text-white font-mono">7+</span>
                       <span className="text-[11px] text-neutral-400">Client Projects</span>
                     </div>
                     <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-center">
-                      <span className="block text-xl font-bold text-cyan-400 font-mono">12+</span>
+                      <span className="block text-xl font-bold text-cyan-400 font-mono">14+</span>
                       <span className="text-[11px] text-neutral-400">Tech Stacks</span>
                     </div>
                   </div>

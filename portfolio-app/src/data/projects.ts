@@ -21,6 +21,45 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "project-luminalearn",
+    slug: "luminalearn-ai-lms",
+    title: "LuminaLearn — Autonomous AI LMS",
+    subtitle: "Autonomous Learning Engine with Self-Operating AI Teacher, Roadmaps & Virtual Interviewer",
+    category: "Generative AI Platform",
+    year: "2025",
+    featured: true,
+    image: "/assets/lumina_lms.png",
+    liveUrl: "https://impact-lms-live.vercel.app/",
+    technologies: [
+      "Generative AI",
+      "LLM Orchestration",
+      "React.js",
+      "Next.js",
+      "Vibe Coding",
+      "Tailwind CSS",
+      "Adaptive Matrix"
+    ],
+    role: "Lead AI Architect & Full-Stack Developer",
+    summary: "An autonomous AI-powered learning management ecosystem where an artificial intelligence engine functions as an end-to-end teacher without human interference—generating full dynamic courses, structured roadmaps, live quizzes, multi-lingual lessons in native languages, video references, real-time data, and conversational AI mock interviews.",
+    problem: "Traditional online learning relies on static, outdated video libraries with no active 1-on-1 mentorship, zero real-time syllabus adaptation, language barriers for regional students, and no simulated interactive interview evaluations.",
+    solution: "Engineered LuminaLearn from the ground up: an autonomous teacher platform that takes any user prompt (technical or non-technical) and instantly constructs personalized multi-stage learning roadmaps, rich modular lessons with diagrams and vetted video references, adaptive tests with grading, AI-synthesized notes, and real-time conversational interview sessions.",
+    features: [
+      "Autonomous AI Teacher: Synthesizes complete curriculums, lesson breakdown, and deep explanations with zero human intervention required",
+      "Quantum Roadmaps & Adaptive Learning Matrix: Continuously tracks progress (e.g. 92% metric completion) and dynamically injects adaptive modules into weak areas",
+      "Class Tests, Quizzes & Assignments: Auto-generates timed quizzes and practical coding/theory assignments with automated evaluation",
+      "Native Language Instruction: Learn complex technical or non-technical topics explained clearly in native regional languages",
+      "Rich Multi-Modal Learning: Embeds architectural diagrams, curated video references, and real-time data benchmarks directly into chapters",
+      "AI-Based Mock Interviewer: Conducts interactive technical and behavioral mock interview sessions with contextual scoring and actionable feedback",
+      "Smart AI Notes & Custom Annotations: Generates concise summaries with rich key takeaways, allowing students to seamlessly add personal notes"
+    ],
+    highlights: [
+      { label: "Live Deployment", value: "impact-lms-live.vercel.app" },
+      { label: "AI Core", value: "Autonomous Teacher Engine" },
+      { label: "Capabilities", value: "Roadmaps + LMS + AI Interviewer" },
+      { label: "Language Support", value: "Multilingual & Native Speech" }
+    ]
+  },
+  {
     id: "project-1",
     slug: "hr-management-system",
     title: "HR Management System",
@@ -72,7 +111,7 @@ export const projects: Project[] = [
       "Optimized lightweight UI for smooth rendering on 4G and mobile devices"
     ],
     highlights: [
-      { label: "Deployment", value: "Netlify Global CDN" },
+      { label: "Deployment", value: "High-Speed Edge CDN" },
       { label: "Live Demo", value: "sastazomato.netlify.app" },
       { label: "Interface", value: "Mobile-First Design" },
       { label: "Load Speed", value: "< 1.2s Fast Paint" }
